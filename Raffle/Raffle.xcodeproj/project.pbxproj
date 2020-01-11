@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0764589E23C9727400DC7CF8 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0764589D23C9727400DC7CF8 /* SignInController.swift */; };
+		076458A023C9732800DC7CF8 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0764589F23C9732800DC7CF8 /* CreateAccountController.swift */; };
+		076458A223C973AF00DC7CF8 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076458A123C973AF00DC7CF8 /* ResetPasswordController.swift */; };
 		78BCEF4D23C7DD1000C16ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCEF4C23C7DD1000C16ABD /* AppDelegate.swift */; };
 		78BCEF4F23C7DD1000C16ABD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCEF4E23C7DD1000C16ABD /* MainController.swift */; };
 		78BCEF5223C7DD1000C16ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BCEF5023C7DD1000C16ABD /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0764589D23C9727400DC7CF8 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		0764589F23C9732800DC7CF8 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		076458A123C973AF00DC7CF8 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		78BCEF4923C7DD1000C16ABD /* Rafflebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rafflebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BCEF4C23C7DD1000C16ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BCEF4E23C7DD1000C16ABD /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 				78BCEF6423C7DD4B00C16ABD /* BaseControllers */,
 				78BCEF5023C7DD1000C16ABD /* Main.storyboard */,
 				78BCEF4E23C7DD1000C16ABD /* MainController.swift */,
+				0764589D23C9727400DC7CF8 /* SignInController.swift */,
+				0764589F23C9732800DC7CF8 /* CreateAccountController.swift */,
+				076458A123C973AF00DC7CF8 /* ResetPasswordController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -212,11 +221,14 @@
 				78BCEF4F23C7DD1000C16ABD /* MainController.swift in Sources */,
 				78BCEF6E23C7DDA900C16ABD /* UIKItExtensions.swift in Sources */,
 				78BCEF6823C7DD6400C16ABD /* BaseViewController.swift in Sources */,
+				0764589E23C9727400DC7CF8 /* SignInController.swift in Sources */,
 				78BCEF6A23C7DD6E00C16ABD /* BaseTableViewController.swift in Sources */,
 				78BCEF7023C7DDB300C16ABD /* FoundationExtensions.swift in Sources */,
+				076458A223C973AF00DC7CF8 /* ResetPasswordController.swift in Sources */,
 				78BCEF4D23C7DD1000C16ABD /* AppDelegate.swift in Sources */,
 				78BCEF6623C7DD5B00C16ABD /* BaseNavigationController.swift in Sources */,
 				78BCEF6C23C7DD9A00C16ABD /* Constants.swift in Sources */,
+				076458A023C9732800DC7CF8 /* CreateAccountController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
