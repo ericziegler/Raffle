@@ -8,12 +8,12 @@ import UIKit
 
 func applyApplicationAppearanceProperties() {
     UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont.applicationFontOfSize(17)], for: .normal)
-    UINavigationBar.appearance().tintColor = UIColor.main
+    UINavigationBar.appearance().tintColor = UIColor.secondary
     UINavigationBar.appearance().barTintColor = UIColor.white
 }
 
 func navTitleTextAttributes() -> [NSAttributedString.Key : Any] {
-    return [NSAttributedString.Key.font : UIFont.applicationTitleFontOfSize(23.0), .foregroundColor : UIColor.secondary]
+    return [NSAttributedString.Key.font : UIFont.applicationTitleFontOfSize(23.0), .foregroundColor : UIColor.appDarkGray]
 }
 
 // MARK: - UIImage

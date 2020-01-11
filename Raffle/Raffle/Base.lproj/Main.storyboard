@@ -104,13 +104,96 @@
                     <view key="view" contentMode="scaleToFill" id="HpM-QF-O3m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-fx-s67">
+                                <rect key="frame" x="47" y="101" width="320" height="257"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-qG-IWh" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="52" width="270" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ac7-41-RLu"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Lgb-Vs-FZw" id="brs-uu-Dti"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgx-lp-a2T">
+                                        <rect key="frame" x="25" y="17" width="50" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhy-jn-Yox" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="139" width="270" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Eeh-qs-mDI"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Lgb-Vs-FZw" id="gdg-sV-vcU"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-R8-gOI">
+                                        <rect key="frame" x="25" y="104" width="91" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-1C-kTF" customClass="ActionButton" customModule="Rafflebot">
+                                        <rect key="frame" x="178" y="198" width="117" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="117" id="1AK-ZX-ZUk"/>
+                                            <constraint firstAttribute="height" constant="44" id="zdp-6J-XYh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                        <state key="normal" title="Sign In"/>
+                                        <connections>
+                                            <action selector="signInTapped:" destination="Lgb-Vs-FZw" eventType="touchUpInside" id="MTo-je-dwf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gIX-1C-kTF" firstAttribute="top" secondItem="yhy-jn-Yox" secondAttribute="bottom" constant="15" id="0qQ-Dq-emR"/>
+                                    <constraint firstItem="fAR-R8-gOI" firstAttribute="leading" secondItem="vgx-lp-a2T" secondAttribute="leading" id="7CO-Z5-vEc"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vgx-lp-a2T" secondAttribute="trailing" constant="20" symbolic="YES" id="9NI-Em-F3P"/>
+                                    <constraint firstItem="vgx-lp-a2T" firstAttribute="top" secondItem="Wbn-fx-s67" secondAttribute="top" constant="17" id="9xk-dV-alR"/>
+                                    <constraint firstItem="Ing-qG-IWh" firstAttribute="top" secondItem="vgx-lp-a2T" secondAttribute="bottom" constant="8" id="BWo-Da-kQp"/>
+                                    <constraint firstItem="Ing-qG-IWh" firstAttribute="leading" secondItem="Wbn-fx-s67" secondAttribute="leading" constant="25" id="Iug-Qg-VN5"/>
+                                    <constraint firstItem="yhy-jn-Yox" firstAttribute="leading" secondItem="Ing-qG-IWh" secondAttribute="leading" id="P8E-h8-KQ1"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fAR-R8-gOI" secondAttribute="trailing" constant="20" symbolic="YES" id="RQB-eu-jtE"/>
+                                    <constraint firstAttribute="height" constant="257" id="UkA-32-85n"/>
+                                    <constraint firstItem="yhy-jn-Yox" firstAttribute="top" secondItem="fAR-R8-gOI" secondAttribute="bottom" constant="8" id="V8g-P3-ng0"/>
+                                    <constraint firstItem="yhy-jn-Yox" firstAttribute="trailing" secondItem="Ing-qG-IWh" secondAttribute="trailing" id="czJ-3M-IJ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ing-qG-IWh" secondAttribute="trailing" constant="25" id="e02-Kb-iOD"/>
+                                    <constraint firstItem="fAR-R8-gOI" firstAttribute="top" secondItem="Ing-qG-IWh" secondAttribute="bottom" constant="8" id="ixy-zP-E4N"/>
+                                    <constraint firstItem="gIX-1C-kTF" firstAttribute="trailing" secondItem="yhy-jn-Yox" secondAttribute="trailing" id="u8x-EC-gQB"/>
+                                    <constraint firstItem="vgx-lp-a2T" firstAttribute="leading" secondItem="Wbn-fx-s67" secondAttribute="leading" constant="25" id="vvC-nP-LqP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wbn-fx-s67" firstAttribute="centerX" secondItem="HpM-QF-O3m" secondAttribute="centerX" id="Zsd-UL-nib"/>
+                            <constraint firstItem="Wbn-fx-s67" firstAttribute="top" secondItem="NMt-rL-OcU" secondAttribute="top" constant="57" id="egM-Ld-gWL"/>
+                            <constraint firstItem="Wbn-fx-s67" firstAttribute="width" secondItem="HpM-QF-O3m" secondAttribute="width" multiplier="0.772947" id="rqc-th-6Ol"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NMt-rL-OcU"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="Ing-qG-IWh" id="MT0-yF-48F"/>
+                        <outlet property="passwordField" destination="yhy-jn-Yox" id="BhB-oW-rkG"/>
+                        <outlet property="textFieldBackground" destination="Wbn-fx-s67" id="UVu-3F-zOV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2D-Ov-9RC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="109"/>
+            <point key="canvasLocation" x="779.71014492753625" y="108.48214285714285"/>
         </scene>
         <!--Create Account Controller-->
         <scene sceneID="1nW-IW-ErG">

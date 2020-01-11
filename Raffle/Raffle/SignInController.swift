@@ -14,18 +14,50 @@ let SignInControllerId = "SignInControllerId"
 
 class SignInController: BaseViewController {
     
+    // MARK: - Properties
+    
+    @IBOutlet var emailField: StyledTextField!
+    @IBOutlet var passwordField: StyledTextField!
+    @IBOutlet var textFieldBackground: UIView!
     
     // MARK: - Init
     
     static func createController() -> SignInController {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: SignInController = storyboard.instantiateViewController(withIdentifier: SignInControllerId) as! SignInController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: SignInControllerId) as! SignInController
         return viewController
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Sign In"
+        title = "Sign In"
+        textFieldBackground.layer.cornerRadius = 10
+        textFieldBackground.layer.borderColor = UIColor(hex: 0xdddddd).cgColor
+        textFieldBackground.layer.borderWidth = 1.5
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func signInTapped(_ sender: AnyObject) {
+        print("SIGN IN TAPPED")
+    }
+    
+    @IBAction func resetPasswordTapped(_ sender: AnyObject) {
+        // TODO: Implement reset password option
+    }
+    
+}
+
+extension SignInController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        }
+        else if textField == passwordField {
+            view.endEditing(true)
+        }
+        return true
     }
     
 }

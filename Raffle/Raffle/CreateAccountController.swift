@@ -14,6 +14,12 @@ let CreateAccountControllerId = "CreateAccountControllerId"
 
 class CreateAccountController: BaseViewController {
 
+    // MARK: - Properties
+    
+    @IBOutlet var nameField: StyledTextField!
+    @IBOutlet var emailField: StyledTextField!
+    @IBOutlet var passwordField: StyledTextField!
+    
     // MARK: - Init
     
     static func createController() -> CreateAccountController {
@@ -25,6 +31,12 @@ class CreateAccountController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Create Account"
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func createAccountTapped(_ sender: AnyObject) {
+        
     }
     
 }

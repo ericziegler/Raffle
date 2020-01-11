@@ -14,7 +14,8 @@ class MainController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        title = " "
     }
     
     // MARK: - Actions
