@@ -19,6 +19,7 @@ class CreateAccountController: BaseViewController {
     @IBOutlet var nameField: StyledTextField!
     @IBOutlet var emailField: StyledTextField!
     @IBOutlet var passwordField: StyledTextField!
+    @IBOutlet var textFieldBackground: UIView!
     
     // MARK: - Init
     
@@ -31,12 +32,34 @@ class CreateAccountController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Create Account"
+        textFieldBackground.layer.cornerRadius = 10
+        textFieldBackground.layer.borderColor = UIColor(hex: 0xdddddd).cgColor
+        textFieldBackground.layer.borderWidth = 1.5
     }
     
     // MARK: - Actions
     
     @IBAction func createAccountTapped(_ sender: AnyObject) {
-        
+        print("CREATE ACCOUNT TAPPED")
+    }
+    
+}
+
+// MARK: - UITextFieldDelegate
+
+extension CreateAccountController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameField {
+            emailField.becomeFirstResponder()
+        }
+        else if textField == emailField {
+            passwordField.becomeFirstResponder()
+        }
+        else if textField == passwordField {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 }

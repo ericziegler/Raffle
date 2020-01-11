@@ -48,6 +48,8 @@ class SignInController: BaseViewController {
     
 }
 
+// MARK: - UITextFieldDelegate
+
 extension SignInController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,7 +57,7 @@ extension SignInController: UITextFieldDelegate {
             passwordField.becomeFirstResponder()
         }
         else if textField == passwordField {
-            view.endEditing(true)
+            textField.resignFirstResponder()
         }
         return true
     }
