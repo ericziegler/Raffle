@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hcm-Hn-UDE">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hcm-Hn-UDE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,13 +31,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="enH-Py-cJs">
+                                <rect key="frame" x="57" y="208" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1C5-mp-PUK"/>
+                                    <constraint firstAttribute="width" constant="300" id="hK1-bq-bFQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rafflebot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8H-de-Saz">
+                                <rect key="frame" x="108.5" y="508" width="197" height="60"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="50"/>
+                                <color key="textColor" red="0.85098039215686272" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMe-aa-lCK" customClass="ActionButton" customModule="Rafflebot">
+                                <rect key="frame" x="52" y="737" width="310" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="BQb-Xu-EzU"/>
+                                    <constraint firstAttribute="height" constant="55" id="NYR-gz-Qtn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Sign In"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-Vc-3E4">
+                                <rect key="frame" x="142.5" y="812" width="129" height="35"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="0.85098039219999999" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crb-Xd-261" userLabel="Underline">
+                                <rect key="frame" x="142.5" y="840" width="129" height="1.5"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1.5" id="6So-NW-g4O"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="enH-Py-cJs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3RK-qm-UTv"/>
+                            <constraint firstItem="M8H-de-Saz" firstAttribute="centerX" secondItem="enH-Py-cJs" secondAttribute="centerX" id="4yX-uf-PF4"/>
+                            <constraint firstItem="Crb-Xd-261" firstAttribute="centerX" secondItem="s7X-Vc-3E4" secondAttribute="centerX" id="8DC-bA-Jzz"/>
+                            <constraint firstItem="Crb-Xd-261" firstAttribute="top" secondItem="s7X-Vc-3E4" secondAttribute="bottom" constant="-7" id="Dce-nA-hNe"/>
+                            <constraint firstItem="M8H-de-Saz" firstAttribute="top" secondItem="enH-Py-cJs" secondAttribute="bottom" id="LsM-Uo-LJX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="s7X-Vc-3E4" secondAttribute="bottom" constant="15" id="c7n-bb-CPX"/>
+                            <constraint firstItem="s7X-Vc-3E4" firstAttribute="top" secondItem="SMe-aa-lCK" secondAttribute="bottom" constant="20" id="lUv-He-IDy"/>
+                            <constraint firstItem="SMe-aa-lCK" firstAttribute="centerX" secondItem="M8H-de-Saz" secondAttribute="centerX" id="n1L-gU-MLA"/>
+                            <constraint firstItem="Crb-Xd-261" firstAttribute="width" secondItem="s7X-Vc-3E4" secondAttribute="width" id="r1G-Mj-yCw"/>
+                            <constraint firstItem="enH-Py-cJs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="xtT-6C-cj6"/>
+                            <constraint firstItem="s7X-Vc-3E4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zQl-q7-6gU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="0cd-H1-sjr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="666.66666666666674" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="512" height="512"/>
+    </resources>
 </document>

@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78BCEF4923C7DD1000C16ABD /* Raffle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raffle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78BCEF4923C7DD1000C16ABD /* Rafflebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rafflebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BCEF4C23C7DD1000C16ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BCEF4E23C7DD1000C16ABD /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		78BCEF5123C7DD1000C16ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		78BCEF4A23C7DD1000C16ABD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78BCEF4923C7DD1000C16ABD /* Raffle.app */,
+				78BCEF4923C7DD1000C16ABD /* Rafflebot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 			);
 			name = Raffle;
 			productName = Raffle;
-			productReference = 78BCEF4923C7DD1000C16ABD /* Raffle.app */;
+			productReference = 78BCEF4923C7DD1000C16ABD /* Rafflebot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -370,7 +370,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zigabytes.Raffle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rafflebot;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zigabytes.Raffle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rafflebot;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

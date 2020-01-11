@@ -13,7 +13,7 @@ func applyApplicationAppearanceProperties() {
 }
 
 func navTitleTextAttributes() -> [NSAttributedString.Key : Any] {
-    return [NSAttributedString.Key.font : UIFont.applicationBoldFontOfSize(21.0), .foregroundColor : UIColor.secondary]
+    return [NSAttributedString.Key.font : UIFont.applicationTitleFontOfSize(23.0), .foregroundColor : UIColor.secondary]
 }
 
 // MARK: - UIImage
@@ -135,20 +135,39 @@ class LightButton: ApplicationStyleButton {
     }
 }
 
+class ActionButton: ApplicationStyleButton {
+    override func commonInit() {
+        if let font = self.titleLabel?.font {
+            self.titleLabel?.font = UIFont.applicationButtonFontOfSize(font.pointSize)
+        }
+        self.setTitleColor(UIColor.appLight, for: .normal)
+        self.backgroundColor = UIColor.main
+        self.layer.cornerRadius = 12
+    }
+}
+
 // MARK: - UIFont
 
 extension UIFont {
 
+    class func applicationTitleFontOfSize(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "GillSans-SemiBold", size: size)!
+    }
+    
+    class func applicationButtonFontOfSize(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "GillSans", size: size)!
+    }
+    
     class func applicationFontOfSize(_ size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: size)!
+        return UIFont(name: "Thonburi", size: size)!
     }
 
     class func applicationBoldFontOfSize(_ size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue-Bold", size: size)!
+        return UIFont(name: "Thonburi-Bold", size: size)!
     }
 
     class func applicationLightFontOfSize(_ size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue-Light", size: size)!
+        return UIFont(name: "Thonburi-Light", size: size)!
     }
 
     class func debugListFonts() {
