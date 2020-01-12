@@ -15,5 +15,6 @@ class Event {
     var identifier = ""
     var name = ""
     var entrants = [Entrant]()
+    var timestamp = 0
     
 }
