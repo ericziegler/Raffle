@@ -42,7 +42,8 @@ class CreateAccountController: BaseViewController {
     
     @IBAction func createAccountTapped(_ sender: AnyObject) {
         if isPasswordValid() == true {
-            if let name = nameField.text, let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
+            if let name = nameField.text, let email = emailField.text, let password = Organization.encodePassword(passwordField.text) {
+                view.endEditing(true)
                 progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Creating Account")
                 Organization.shared.createAccountWith(name: name, email: email, password: password) { (error) in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

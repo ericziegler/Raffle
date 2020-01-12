@@ -13,8 +13,18 @@ class Event {
     // MARK: - Properties
     
     var identifier = ""
+    var organizationId = ""
     var name = ""
     var entrants = [Entrant]()
-    var timestamp = 0
-    
+    var timestamp: Double = 0
+
+    // MARK: - Loading
+
+    func load(props: JSON) {
+        identifier = props.dictionary!["id"]!.stringValue
+        organizationId = props.dictionary!["organization_id"]!.stringValue
+        name = props.dictionary!["name"]!.stringValue
+        timestamp = props.dictionary!["timestamp"]!.doubleValue
+    }
+
 }

@@ -96,9 +96,38 @@ class Organization {
                         self.name = json.dictionary!["name"]!.stringValue
                         self.email = json.dictionary!["email"]!.stringValue
                         self.password = json.dictionary!["password"]!.stringValue
-                        self.events = [Event]()
-                        completion(nil)
+                        self.loadEventsWith { (error) in
+                            completion(error)
+                        }
                     }
+                } else {
+                    completion(RaffleError.Unknown)
+                }
+            }
+            task.resume()
+        } else {
+            completion(RaffleError.InvalidRequest)
+        }
+    }
+
+    private func loadEventsWith(completion: @escaping RequestCompletionBlock) {
+        if let request = buildRequestFor(fileName: "events.php", params: ["organization_id" : identifier]) {
+            let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
+                let response = buildJSONResponse(data: data, error: error)
+                if let error = response.1 {
+                    completion(error)
+                }
+                else if let json = response.0 {
+                    self.events.removeAll()
+                    let eventProps = json.dictionary!["events"]!.arrayValue
+                    for curEventProps in eventProps {
+                        let event = Event()
+                        event.load(props: curEventProps)
+                        if event.identifier.count > 0 {
+                            self.events.append(event)
+                        }
+                    }
+                    completion(nil)
                 } else {
                     completion(RaffleError.Unknown)
                 }
@@ -119,14 +148,13 @@ class Organization {
 
     // MARK: - Encoding
 
-    class func encodeAndCleanPassword(_ password: String?) -> String? {
+    class func encodePassword(_ password: String?) -> String? {
         var result: String?
         if let password = password {
             // first pass
             let firstPass = Data(password.utf8).base64EncodedString()
             // second pass
-            let secondPass = Data(firstPass.utf8).base64EncodedString()
-            result = secondPass.replacingOccurrences(of: "/", with: "-")
+            result = Data(firstPass.utf8).base64EncodedString()
         }
         return result
     }
