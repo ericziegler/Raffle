@@ -133,7 +133,6 @@ class Organization {
                     if json.dictionary!["status"]?.stringValue == SuccessStatus {
                         let event = Event()
                         event.identifier = eventId
-                        event.organizationId = self.identifier
                         event.name = name
                         event.timestamp = Double(eventTimestamp)!
                         self.events.insert(event, at: 0)
@@ -151,7 +150,7 @@ class Organization {
         }
     }
 
-    private func loadEventsWith(completion: @escaping RequestCompletionBlock) {
+    func loadEventsWith(completion: @escaping RequestCompletionBlock) {
         if let request = buildRequestFor(fileName: "events.php", params: ["organization_id" : identifier]) {
             let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
                 let response = buildJSONResponse(data: data, error: error)

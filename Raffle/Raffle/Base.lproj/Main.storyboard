@@ -338,6 +338,51 @@
             </objects>
             <point key="canvasLocation" x="2075" y="100"/>
         </scene>
+        <!--Organization Controller-->
+        <scene sceneID="xe3-04-TCs">
+            <objects>
+                <viewController storyboardIdentifier="OrganizationControllerId" id="NvP-aX-MNr" customClass="OrganizationController" customModule="Rafflebot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NIs-Ii-arb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="80v-Ms-x1j"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJ5-Q0-XWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="823"/>
+        </scene>
+        <!--Event Controller-->
+        <scene sceneID="egx-Ob-vWg">
+            <objects>
+                <viewController storyboardIdentifier="EventControllerId" id="dss-bB-LjR" customClass="EventController" customModule="Rafflebot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fHh-Uj-IDa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zTw-vn-ae7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w14-j1-gup" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="823"/>
+        </scene>
+        <!--Entrant Controller-->
+        <scene sceneID="mFg-9M-3ec">
+            <objects>
+                <viewController storyboardIdentifier="EntrantControllerId" id="TtZ-I5-Bwa" customClass="EntrantController" customModule="Rafflebot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vhh-iO-T02">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xY6-TZ-5LO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zYi-Jo-khd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="823"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="512" height="512"/>

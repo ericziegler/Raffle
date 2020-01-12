@@ -53,7 +53,8 @@ class CreateAccountController: BaseViewController {
                             let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Sign In Failed", message: "We were unable to create an account for this email.", okButton: "OK", cancelButton: nil)
                             alert.showAlert()
                          } else {
-                             // TODO: Move to Organization screenr
+                             let viewController = OrganizationController.createController()
+                             self.navigationController?.pushViewController(viewController, animated: false)
                          }
                      }
                 }

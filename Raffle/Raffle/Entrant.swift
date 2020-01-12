@@ -17,5 +17,15 @@ class Entrant {
     var lastName = ""
     var email = ""
     var phone = ""
+
+    // MARK: - Loading
+
+    func load(props: JSON) {
+        identifier = props.dictionary!["id"]!.stringValue        
+        firstName = props.dictionary!["first_name"]!.stringValue
+        lastName = props.dictionary!["last_name"]!.stringValue
+        email = props.dictionary!["email"]!.stringValue
+        phone = props.dictionary!["phone"]!.stringValue
+    }
     
 }
