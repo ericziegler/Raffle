@@ -43,18 +43,20 @@ class SignInController: BaseViewController {
         if let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
             progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
             Organization.shared.loginWith(email: email, password: password) { (error) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.progressView?.hideProgress()
                     self.progressView = nil
                     if let _ = error {
-                        // TODO: Display an alert that we were unable to sign in
+                        let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Sign In Failed", message: "We were unable to sign in using this email and password.", okButton: "OK", cancelButton: nil)
+                        alert.showAlert()
                     } else {
                         // TODO: Move to Organization screenr
                     }
                 }
             }
         } else {
-            // TODO: Display an alert that all fields must be filled out
+            let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Empty Fields", message: "All fields must be filled out before continuing.", okButton: "OK", cancelButton: nil)
+            alert.showAlert()
         }
     }
     

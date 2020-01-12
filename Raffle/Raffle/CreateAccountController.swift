@@ -43,23 +43,26 @@ class CreateAccountController: BaseViewController {
     @IBAction func createAccountTapped(_ sender: AnyObject) {
         if isPasswordValid() == true {
             if let name = nameField.text, let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
-                progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
+                progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Creating Account")
                 Organization.shared.createAccountWith(name: name, email: email, password: password) { (error) in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                          self.progressView?.hideProgress()
                          self.progressView = nil
                          if let _ = error {
-                             // TODO: Display an alert that we were unable to sign in
+                            let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Sign In Failed", message: "We were unable to create an account for this email.", okButton: "OK", cancelButton: nil)
+                            alert.showAlert()
                          } else {
                              // TODO: Move to Organization screenr
                          }
                      }
                 }
             } else {
-                // TODO: Display an alert that all fields must be filled out
+                let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Empty Fields", message: "All fields must be filled out before continuing.", okButton: "OK", cancelButton: nil)
+                alert.showAlert()
             }
         } else {
-            // TODO: Display an alert that password must contain at least one number and be at least eight characters            
+            let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Invalid Password", message: "Passwords must be at least 8 characters with at least one number.", okButton: "OK", cancelButton: nil)
+            alert.showAlert()
         }
     }
     
