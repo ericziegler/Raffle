@@ -20,6 +20,7 @@ class CreateAccountController: BaseViewController {
     @IBOutlet var emailField: StyledTextField!
     @IBOutlet var passwordField: StyledTextField!
     @IBOutlet var textFieldBackground: UIView!
+    var progressView: ProgressView?
     
     // MARK: - Init
     
@@ -40,22 +41,38 @@ class CreateAccountController: BaseViewController {
     // MARK: - Actions
     
     @IBAction func createAccountTapped(_ sender: AnyObject) {
-        if let name = nameField.text, let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
-            Organization.shared.createAccountWith(name: name, email: email, password: password) { (error) in
-                if let _ = error {
-                    // TODO: Display an alert that we were unable to create an account
-                } else {
-                    // TODO: Move to Organization screen
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Sign In Success", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Great Jarb", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
+        if isPasswordValid() == true {
+            if let name = nameField.text, let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
+                progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
+                Organization.shared.createAccountWith(name: name, email: email, password: password) { (error) in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                         self.progressView?.hideProgress()
+                         self.progressView = nil
+                         if let _ = error {
+                             // TODO: Display an alert that we were unable to sign in
+                         } else {
+                             // TODO: Move to Organization screenr
+                         }
+                     }
                 }
+            } else {
+                // TODO: Display an alert that all fields must be filled out
             }
         } else {
-            // TODO: Display an alert that all fields must be filled out
+            // TODO: Display an alert that password must contain at least one number and be at least eight characters            
         }
+    }
+    
+    // MARK: - Helpers
+    
+    private func isPasswordValid() -> Bool {
+        var result = false
+        if let password = passwordField.text {
+            if password.count > 7 && password.rangeOfCharacter(from: .decimalDigits) != nil && password.rangeOfCharacter(from: .letters) != nil {
+                result = true
+            }
+        }
+        return result
     }
     
 }

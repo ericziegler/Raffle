@@ -19,6 +19,7 @@ class SignInController: BaseViewController {
     @IBOutlet var emailField: StyledTextField!
     @IBOutlet var passwordField: StyledTextField!
     @IBOutlet var textFieldBackground: UIView!
+    var progressView: ProgressView?
     
     // MARK: - Init
     
@@ -40,16 +41,16 @@ class SignInController: BaseViewController {
     
     @IBAction func signInTapped(_ sender: AnyObject) {
         if let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
+            progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
             Organization.shared.loginWith(email: email, password: password) { (error) in
-                if let _ = error {
-                    // TODO: Display an alert that we were unable to sign in
-                } else {
-                    // TODO: Move to Organization screenr
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Logged in to \(Organization.shared.name)", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Great Jarb", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }   
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self.progressView?.hideProgress()
+                    self.progressView = nil
+                    if let _ = error {
+                        // TODO: Display an alert that we were unable to sign in
+                    } else {
+                        // TODO: Move to Organization screenr
+                    }
                 }
             }
         } else {
