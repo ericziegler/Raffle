@@ -40,7 +40,17 @@ class CreateAccountController: BaseViewController {
     // MARK: - Actions
     
     @IBAction func createAccountTapped(_ sender: AnyObject) {
-        print("CREATE ACCOUNT TAPPED")
+        if let name = nameField.text, let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
+            Organization.shared.createAccountWith(name: name, email: email, password: password) { (error) in
+                if let _ = error {
+                    // TODO: Display an alert that we were unable to create an account
+                } else {
+                    // TODO: Move to Organization screen
+                }
+            }
+        } else {
+            // TODO: Display an alert that all fields must be filled out
+        }
     }
     
 }

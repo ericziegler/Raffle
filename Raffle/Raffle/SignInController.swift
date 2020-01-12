@@ -39,7 +39,17 @@ class SignInController: BaseViewController {
     // MARK: - Actions
     
     @IBAction func signInTapped(_ sender: AnyObject) {
-        print("SIGN IN TAPPED")
+        if let email = emailField.text, let password = Organization.encodeAndCleanPassword(passwordField.text) {
+            Organization.shared.loginWith(email: email, password: password) { (error) in
+                if let _ = error {
+                    // TODO: Display an alert that we were unable to sign in
+                } else {
+                    // TODO: Move to Organization screen
+                }
+            }
+        } else {
+            // TODO: Display an alert that all fields must be filled out
+        }
     }
     
     @IBAction func resetPasswordTapped(_ sender: AnyObject) {

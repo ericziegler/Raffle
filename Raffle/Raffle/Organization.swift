@@ -17,5 +17,118 @@ class Organization {
     var email = ""
     var password = ""
     var events = [Event]()
+
+    // MARK: - Init
+
+    static let shared = Organization()
+
+    // MARK: - Authentication
+
+    private func checkAccountExistsFor(email: String, completion: @escaping RequestCheckEmailBlock) {
+        if let request = buildRequestFor(fileName: "check_email.php", params: ["email" : email]) {
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                let response = buildJSONResponse(data: data, error: error)
+                if let error = response.1 {
+                    completion(0, error)
+                }
+                else if let json = response.0 {
+                    completion(json.dictionary!["match_count"]!.intValue, nil)
+                } else {
+                    completion(0, RaffleError.Unknown)
+                }
+            }
+            task.resume()
+        } else {
+            completion(0, RaffleError.InvalidRequest)
+        }
+    }
+
+    func createAccountWith(name: String, email: String, password: String, completion: @escaping RequestCompletionBlock) {
+        // first check that no account exists with that email
+        checkAccountExistsFor(email: email) { (matchCount, error) in
+            if error == nil {
+                let organizationId = UUID().uuidString
+                if let request = buildRequestFor(fileName: "create_account.php", params: ["id" : organizationId, "name" : name, "email" : email, "password" : password]) {
+                    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        let response = buildJSONResponse(data: data, error: error)
+                        if let error = response.1 {
+                            completion(error)
+                        }
+                        else if let json = response.0 {
+                            self.identifier = json.dictionary!["id"]!.stringValue
+                            if self.identifier == JSONNullValue {
+                                self.logout()
+                                completion(RaffleError.UnexpectedResult)
+                            } else {
+                                self.name = json.dictionary!["name"]!.stringValue
+                                self.email = json.dictionary!["email"]!.stringValue
+                                self.password = json.dictionary!["password"]!.stringValue
+                                self.events = [Event]()
+                                completion(nil)
+                            }
+                        } else {
+                            completion(RaffleError.Unknown)
+                        }
+                    }
+                    task.resume()
+                } else {
+                    completion(RaffleError.InvalidRequest)
+                }
+            } else {
+                completion(error)
+            }
+        }
+    }
+
+    func loginWith(email: String, password: String, completion: @escaping RequestCompletionBlock) {
+        if let request = buildRequestFor(fileName: "login.php", params: ["email" : email, "password" : password]) {
+            let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
+                let response = buildJSONResponse(data: data, error: error)
+                if let error = response.1 {
+                    completion(error)
+                }
+                else if let json = response.0 {
+                    self.identifier = json.dictionary!["id"]!.stringValue
+                    if self.identifier == JSONNullValue {
+                        self.logout()
+                        completion(RaffleError.UnexpectedResult)
+                    } else {
+                        self.name = json.dictionary!["name"]!.stringValue
+                        self.email = json.dictionary!["email"]!.stringValue
+                        self.password = json.dictionary!["password"]!.stringValue
+                        self.events = [Event]()
+                        completion(nil)
+                    }
+                } else {
+                    completion(RaffleError.Unknown)
+                }
+            }
+            task.resume()
+        } else {
+            completion(RaffleError.InvalidRequest)
+        }
+    }
+
+    func logout() {
+        self.identifier = ""
+        self.name = ""
+        self.email = ""
+        self.password = ""
+        self.events = [Event]()
+    }
+
+    // MARK: - Encoding
+
+    class func encodeAndCleanPassword(_ password: String?) -> String? {
+        var result: String?
+        if let password = password {
+            // first pass
+            let firstPass = Data(password.utf8).base64EncodedString()
+            // second pass
+            let secondPass = Data(firstPass.utf8).base64EncodedString()
+            result = secondPass.replacingOccurrences(of: "/", with: "-")
+        }
+        return result
+    }
     
 }
