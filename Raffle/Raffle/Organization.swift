@@ -110,6 +110,47 @@ class Organization {
         }
     }
 
+    func logout() {
+        self.identifier = ""
+        self.name = ""
+        self.email = ""
+        self.password = ""
+        self.events = [Event]()
+    }
+
+    // MARK: - Events
+
+    func addEventWith(name: String, completion: @escaping RequestCompletionBlock) {
+        let eventId = UUID().uuidString
+        let eventTimestamp = String(Date().timeIntervalSince1970)
+        if let request = buildRequestFor(fileName: "add_event.php", params: ["organization_id" : identifier, "event_name" : name, "event_id" : eventId, "timestamp" : eventTimestamp]) {
+            let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
+                let response = buildJSONResponse(data: data, error: error)
+                if let error = response.1 {
+                    completion(error)
+                }
+                else if let json = response.0 {
+                    if json.dictionary!["status"]?.stringValue == SuccessStatus {
+                        let event = Event()
+                        event.identifier = eventId
+                        event.organizationId = self.identifier
+                        event.name = name
+                        event.timestamp = Double(eventTimestamp)!
+                        self.events.insert(event, at: 0)
+                        completion(nil)
+                    } else {
+                        completion(RaffleError.UnexpectedResult)
+                    }
+                } else {
+                    completion(RaffleError.Unknown)
+                }
+            }
+            task.resume()
+        } else {
+            completion(RaffleError.InvalidRequest)
+        }
+    }
+
     private func loadEventsWith(completion: @escaping RequestCompletionBlock) {
         if let request = buildRequestFor(fileName: "events.php", params: ["organization_id" : identifier]) {
             let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
@@ -136,14 +177,6 @@ class Organization {
         } else {
             completion(RaffleError.InvalidRequest)
         }
-    }
-
-    func logout() {
-        self.identifier = ""
-        self.name = ""
-        self.email = ""
-        self.password = ""
-        self.events = [Event]()
     }
 
     // MARK: - Encoding
