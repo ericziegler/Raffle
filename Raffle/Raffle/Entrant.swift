@@ -17,9 +17,5 @@ class Entrant {
     var lastName = ""
     var email = ""
     var phone = ""
-    var address = ""
-    var city = ""
-    var state = ""
-    var zipcode = ""
     
 }

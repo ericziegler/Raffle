@@ -44,7 +44,12 @@ class SignInController: BaseViewController {
                 if let _ = error {
                     // TODO: Display an alert that we were unable to sign in
                 } else {
-                    // TODO: Move to Organization screen
+                    // TODO: Move to Organization screenr
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Logged in to \(Organization.shared.name)", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Great Jarb", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }   
                 }
             }
         } else {

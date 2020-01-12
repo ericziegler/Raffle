@@ -46,6 +46,11 @@ class CreateAccountController: BaseViewController {
                     // TODO: Display an alert that we were unable to create an account
                 } else {
                     // TODO: Move to Organization screen
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Sign In Success", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Great Jarb", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         } else {
