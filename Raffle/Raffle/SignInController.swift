@@ -19,6 +19,7 @@ class SignInController: BaseViewController {
     @IBOutlet var emailField: StyledTextField!
     @IBOutlet var passwordField: StyledTextField!
     @IBOutlet var textFieldBackground: UIView!
+    @IBOutlet var backgroundTopConstraint: NSLayoutConstraint!
     var progressView: ProgressView?
     
     // MARK: - Init
@@ -35,15 +36,18 @@ class SignInController: BaseViewController {
         textFieldBackground.layer.cornerRadius = 10
         textFieldBackground.layer.borderColor = UIColor(hex: 0xdddddd).cgColor
         textFieldBackground.layer.borderWidth = 1.5
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenTapped(_:)))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     // MARK: - Actions
     
     @IBAction func signInTapped(_ sender: AnyObject) {
-        if let email = emailField.text, let password = Organization.encodePassword(passwordField.text) {
+        if emailField.isNilOrEmpty() == false && passwordField.isNilOrEmpty() == false, let password =  Organization.encodePassword(passwordField.text) {            
             view.endEditing(true)
+            resetTopConstraint()
             progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
-            Organization.shared.loginWith(email: email, password: password) { (error) in
+            Organization.shared.loginWith(email: emailField.text!, password: password) { (error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.progressView?.hideProgress()
                     self.progressView = nil
@@ -65,6 +69,20 @@ class SignInController: BaseViewController {
     @IBAction func resetPasswordTapped(_ sender: AnyObject) {
         // TODO: Implement reset password option
     }
+
+    @objc func screenTapped(_ sender: AnyObject) {
+        view.endEditing(true)
+        resetTopConstraint()
+    }
+
+    // MARK: - Helpers
+
+    private func resetTopConstraint() {
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundTopConstraint.constant = 27
+            self.view.layoutIfNeeded()
+        }
+    }
     
 }
 
@@ -72,12 +90,27 @@ class SignInController: BaseViewController {
 
 extension SignInController: UITextFieldDelegate {
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var constraintConstant: CGFloat = 27
+        if textField == emailField {
+            constraintConstant = 0
+        }
+        else if textField == passwordField {
+            constraintConstant = -100
+        }
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundTopConstraint.constant = constraintConstant
+            self.view.layoutIfNeeded()
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {
             passwordField.becomeFirstResponder()
         }
         else if textField == passwordField {
             textField.resignFirstResponder()
+            resetTopConstraint()
         }
         return true
     }

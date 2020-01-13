@@ -110,7 +110,8 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - TextAlertViewDelegate
 
 extension OrganizationController: TextAlertViewDelegate {
-    func okTappedForCardAlertView(alertView: TextAlertView, text: String) {
+
+    func okTappedForTextAlertView(alertView: TextAlertView, text: String) {
         organization.addEventWith(name: text) { [unowned self] (error) in
             DispatchQueue.main.async {
                 if let _ = error {

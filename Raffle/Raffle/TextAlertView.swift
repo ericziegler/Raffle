@@ -17,7 +17,7 @@ let TextAlertViewLightAnimateInterval: TimeInterval = 0.2
 // MARK: - Protocols
 
 protocol TextAlertViewDelegate {
-    func okTappedForCardAlertView(alertView: TextAlertView, text: String)
+    func okTappedForTextAlertView(alertView: TextAlertView, text: String)
 }
 
 // MARK: - Enums
@@ -94,7 +94,7 @@ class TextAlertView: UIView {
             self.removeFromSuperview()
             if self.selectionStatus == .ok {
                 if let entry = self.entryField.text, entry.count > 0 {
-                    self.delegate?.okTappedForCardAlertView(alertView: self, text: entry)
+                    self.delegate?.okTappedForTextAlertView(alertView: self, text: entry)
                 }
             }
         }

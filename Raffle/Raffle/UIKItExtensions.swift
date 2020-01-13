@@ -316,6 +316,13 @@ extension UITextField {
         return buttonItem
     }
 
+    func isNilOrEmpty() -> Bool {
+        if let text = self.text, text.replacingOccurrences(of: " ", with: "").count > 0 {
+            return false
+        }
+        return true
+    }
+
 }
 
 class StyledTextField : UITextField {

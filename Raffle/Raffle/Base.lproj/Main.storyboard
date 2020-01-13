@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-fx-s67">
-                                <rect key="frame" x="47" y="101" width="320" height="257"/>
+                                <rect key="frame" x="47" y="71" width="320" height="257"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-qG-IWh" customClass="StyledTextField" customModule="Rafflebot">
                                         <rect key="frame" x="25" y="52" width="270" height="44"/>
@@ -180,12 +180,13 @@
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Wbn-fx-s67" firstAttribute="centerX" secondItem="HpM-QF-O3m" secondAttribute="centerX" id="Zsd-UL-nib"/>
-                            <constraint firstItem="Wbn-fx-s67" firstAttribute="top" secondItem="NMt-rL-OcU" secondAttribute="top" constant="57" id="egM-Ld-gWL"/>
+                            <constraint firstItem="Wbn-fx-s67" firstAttribute="top" secondItem="NMt-rL-OcU" secondAttribute="top" constant="27" id="egM-Ld-gWL"/>
                             <constraint firstItem="Wbn-fx-s67" firstAttribute="width" secondItem="HpM-QF-O3m" secondAttribute="width" multiplier="0.772947" id="rqc-th-6Ol"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NMt-rL-OcU"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundTopConstraint" destination="egM-Ld-gWL" id="vXG-kw-MhG"/>
                         <outlet property="emailField" destination="Ing-qG-IWh" id="MT0-yF-48F"/>
                         <outlet property="passwordField" destination="yhy-jn-Yox" id="BhB-oW-rkG"/>
                         <outlet property="textFieldBackground" destination="Wbn-fx-s67" id="UVu-3F-zOV"/>
@@ -204,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDE-ac-GdG">
-                                <rect key="frame" x="47" y="101" width="320" height="392"/>
+                                <rect key="frame" x="47" y="71" width="320" height="392"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-B7-UbK" customClass="StyledTextField" customModule="Rafflebot">
                                         <rect key="frame" x="25" y="52" width="270" height="44"/>
@@ -254,7 +255,7 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passwords must be at least 8 characters with at least one number." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iq-uo-B0w" customClass="RegularLabel" customModule="Rafflebot">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passwords must be at least 8 alphanumeric characters." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iq-uo-B0w" customClass="RegularLabel" customModule="Rafflebot">
                                         <rect key="frame" x="25" y="272" width="270" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="dgT-hg-hrU"/>
@@ -306,13 +307,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WDE-ac-GdG" firstAttribute="top" secondItem="AGW-e5-amS" secondAttribute="top" constant="57" id="J7j-fO-0sh"/>
+                            <constraint firstItem="WDE-ac-GdG" firstAttribute="top" secondItem="AGW-e5-amS" secondAttribute="top" constant="27" id="J7j-fO-0sh"/>
                             <constraint firstItem="WDE-ac-GdG" firstAttribute="width" secondItem="mLG-tG-hvj" secondAttribute="width" multiplier="0.772947" id="Y1q-oI-7d7"/>
                             <constraint firstItem="WDE-ac-GdG" firstAttribute="centerX" secondItem="mLG-tG-hvj" secondAttribute="centerX" id="pKM-VS-nIc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AGW-e5-amS"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundTopConstraint" destination="J7j-fO-0sh" id="mEH-Dr-5M6"/>
                         <outlet property="emailField" destination="Z9C-0V-tju" id="bFa-OO-5D8"/>
                         <outlet property="nameField" destination="gGb-B7-UbK" id="Pc7-OA-1NT"/>
                         <outlet property="passwordField" destination="jDf-o7-ftV" id="NuZ-3G-fLm"/>
@@ -710,9 +712,133 @@
                     <view key="view" contentMode="scaleToFill" id="vhh-iO-T02">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1W-G8-Niq">
+                                <rect key="frame" x="47" y="61" width="320" height="432"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. Bruce" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-ZA-wxM" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="52" width="270" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="CaA-ig-HjP"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TtZ-I5-Bwa" id="tC6-oD-MX7"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCN-YI-Vos">
+                                        <rect key="frame" x="25" y="17" width="104" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. Wayne" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-ma-mrn" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="139" width="270" height="44"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TtZ-I5-Bwa" id="lcK-ig-nMu"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-rU-dbo">
+                                        <rect key="frame" x="25" y="104" width="104" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. bruce@batcave.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-vp-4bW" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="226" width="270" height="44"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TtZ-I5-Bwa" id="Ffm-we-4oM"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIx-o1-K5B">
+                                        <rect key="frame" x="25" y="191" width="135" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byi-nZ-N3x" customClass="ActionButton" customModule="Rafflebot">
+                                        <rect key="frame" x="113" y="372" width="182" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="182" id="1Xe-4a-R0W"/>
+                                            <constraint firstAttribute="height" constant="44" id="nz9-Hc-Jt2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                        <state key="normal" title="Enter Contest"/>
+                                        <connections>
+                                            <action selector="enterTapped:" destination="TtZ-I5-Bwa" eventType="touchUpInside" id="GiV-1i-uXP"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. 5135552165" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTE-7A-I17" customClass="StyledTextField" customModule="Rafflebot">
+                                        <rect key="frame" x="25" y="313" width="270" height="44"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TtZ-I5-Bwa" id="5VP-9n-ZMg"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyR-iT-aLN">
+                                        <rect key="frame" x="25" y="278" width="141" height="27"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="zCN-YI-Vos" firstAttribute="top" secondItem="e1W-G8-Niq" secondAttribute="top" constant="17" id="3kJ-JJ-av2"/>
+                                    <constraint firstItem="Y9E-ma-mrn" firstAttribute="top" secondItem="TTS-rU-dbo" secondAttribute="bottom" constant="8" id="3yC-nh-9jd"/>
+                                    <constraint firstItem="Y9E-ma-mrn" firstAttribute="trailing" secondItem="pfU-ZA-wxM" secondAttribute="trailing" id="6a6-JA-Aep"/>
+                                    <constraint firstItem="VyR-iT-aLN" firstAttribute="leading" secondItem="zCN-YI-Vos" secondAttribute="leading" id="A0J-6r-REm"/>
+                                    <constraint firstItem="Y9E-ma-mrn" firstAttribute="height" secondItem="pfU-ZA-wxM" secondAttribute="height" id="Chn-FD-Bdk"/>
+                                    <constraint firstItem="WHM-vp-4bW" firstAttribute="leading" secondItem="pfU-ZA-wxM" secondAttribute="leading" id="Cuw-Hb-JlC"/>
+                                    <constraint firstItem="WHM-vp-4bW" firstAttribute="top" secondItem="mIx-o1-K5B" secondAttribute="bottom" constant="8" id="DMf-xG-c7c"/>
+                                    <constraint firstItem="pfU-ZA-wxM" firstAttribute="top" secondItem="zCN-YI-Vos" secondAttribute="bottom" constant="8" id="Nc4-hz-pAn"/>
+                                    <constraint firstItem="TTS-rU-dbo" firstAttribute="top" secondItem="pfU-ZA-wxM" secondAttribute="bottom" constant="8" id="RYn-EW-KQu"/>
+                                    <constraint firstItem="WHM-vp-4bW" firstAttribute="trailing" secondItem="pfU-ZA-wxM" secondAttribute="trailing" id="S23-To-3Kh"/>
+                                    <constraint firstItem="VyR-iT-aLN" firstAttribute="top" secondItem="WHM-vp-4bW" secondAttribute="bottom" constant="8" id="Yg0-B4-0Uu"/>
+                                    <constraint firstItem="TTS-rU-dbo" firstAttribute="leading" secondItem="zCN-YI-Vos" secondAttribute="leading" id="bqp-ZJ-rQq"/>
+                                    <constraint firstItem="byi-nZ-N3x" firstAttribute="trailing" secondItem="HTE-7A-I17" secondAttribute="trailing" id="ctJ-H8-EXh"/>
+                                    <constraint firstItem="mIx-o1-K5B" firstAttribute="leading" secondItem="zCN-YI-Vos" secondAttribute="leading" id="eua-uT-rU0"/>
+                                    <constraint firstItem="mIx-o1-K5B" firstAttribute="top" secondItem="Y9E-ma-mrn" secondAttribute="bottom" constant="8" id="evF-kM-zbo"/>
+                                    <constraint firstItem="zCN-YI-Vos" firstAttribute="leading" secondItem="e1W-G8-Niq" secondAttribute="leading" constant="25" id="f7T-zZ-CcT"/>
+                                    <constraint firstAttribute="height" constant="432" id="flg-f2-Wqd"/>
+                                    <constraint firstAttribute="trailing" secondItem="pfU-ZA-wxM" secondAttribute="trailing" constant="25" id="jkg-3e-rFS"/>
+                                    <constraint firstItem="HTE-7A-I17" firstAttribute="top" secondItem="VyR-iT-aLN" secondAttribute="bottom" constant="8" id="lK3-zx-GSD"/>
+                                    <constraint firstItem="Y9E-ma-mrn" firstAttribute="leading" secondItem="pfU-ZA-wxM" secondAttribute="leading" id="lWe-Te-Uef"/>
+                                    <constraint firstItem="pfU-ZA-wxM" firstAttribute="leading" secondItem="e1W-G8-Niq" secondAttribute="leading" constant="25" id="liR-65-jQC"/>
+                                    <constraint firstItem="HTE-7A-I17" firstAttribute="height" secondItem="pfU-ZA-wxM" secondAttribute="height" id="rmz-Q4-uEv"/>
+                                    <constraint firstItem="WHM-vp-4bW" firstAttribute="height" secondItem="pfU-ZA-wxM" secondAttribute="height" id="tMf-1R-XGv"/>
+                                    <constraint firstItem="HTE-7A-I17" firstAttribute="trailing" secondItem="pfU-ZA-wxM" secondAttribute="trailing" id="ug5-cD-Wlp"/>
+                                    <constraint firstItem="byi-nZ-N3x" firstAttribute="top" secondItem="HTE-7A-I17" secondAttribute="bottom" constant="15" id="x8S-kD-D3k"/>
+                                    <constraint firstItem="HTE-7A-I17" firstAttribute="leading" secondItem="pfU-ZA-wxM" secondAttribute="leading" id="xCN-54-fXe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="e1W-G8-Niq" firstAttribute="top" secondItem="xY6-TZ-5LO" secondAttribute="top" constant="17" id="AXw-uw-OVs"/>
+                            <constraint firstItem="e1W-G8-Niq" firstAttribute="width" secondItem="vhh-iO-T02" secondAttribute="width" multiplier="0.772947" id="b6t-EK-jT0"/>
+                            <constraint firstItem="e1W-G8-Niq" firstAttribute="centerX" secondItem="vhh-iO-T02" secondAttribute="centerX" id="iAf-vr-35Z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xY6-TZ-5LO"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundTopConstraint" destination="AXw-uw-OVs" id="K3h-oF-Ezi"/>
+                        <outlet property="emailField" destination="WHM-vp-4bW" id="xm7-yf-ciE"/>
+                        <outlet property="firstNameField" destination="pfU-ZA-wxM" id="Tv3-dY-LSa"/>
+                        <outlet property="lastNameField" destination="Y9E-ma-mrn" id="nWh-7i-tQF"/>
+                        <outlet property="phoneField" destination="HTE-7A-I17" id="3E7-IB-Nfz"/>
+                        <outlet property="textFieldBackground" destination="e1W-G8-Niq" id="0aR-69-R0J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYi-Jo-khd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

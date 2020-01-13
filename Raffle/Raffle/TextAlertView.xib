@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,7 +47,7 @@
                                 <constraint firstAttribute="height" constant="1" id="UCf-lo-0mq"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-Tq-Efp" customClass="BoldLabel" customModule="Rafflebot">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-Tq-Efp" customClass="BoldLabel" customModule="Rafflebot">
                             <rect key="frame" x="8" y="15" width="318" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="Pwi-TV-tSz"/>
