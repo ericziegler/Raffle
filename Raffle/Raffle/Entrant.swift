@@ -27,5 +27,18 @@ class Entrant {
         email = props.dictionary!["email"]!.stringValue
         phone = props.dictionary!["phone"]!.stringValue
     }
+
+    // MARK: - Formatting
+
+    var formattedName: String {
+        return "\(firstName) \(lastName)"
+    }
+
+    var formattedPhone: String {
+        if let result = String.formatPhoneNumber(source: phone) {
+            return result
+        }
+        return ""
+    }
     
 }

@@ -15,7 +15,12 @@ let EventControllerId = "EventControllerId"
 class EventController: BaseViewController {
 
     // MARK: - Properties
-    
+
+    @IBOutlet var entrantsTable: UITableView!
+    @IBOutlet var nameLabel: TitleLabel!
+
+    private let refreshControl = UIRefreshControl()
+    var progressView: ProgressView?
     var event: Event!
     
     // MARK: - Init
@@ -30,7 +35,88 @@ class EventController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event"
+        entrantsTable.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor.appGray
+        refreshControl.addTarget(self, action: #selector(refreshEntrants(_:)), for: .valueChanged)
+        nameLabel.text = event.name
         navigationItem.setHidesBackButton(false, animated: false)
+        loadEntrants()
+    }
+
+    // MARK: - Loading
+
+    @objc private func refreshEntrants(_ sender: AnyObject) {
+        loadEntrants()
+    }
+
+    private func loadEntrants() {
+        progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Fetching Entrants")
+        progressView!.showProgress()
+        event.loadEntrantsWith { [unowned self] (error) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.progressView!.hideProgress()
+                self.progressView = nil
+                if let _ = error {
+                    let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Fetching Error", message: "We couldn't load the list of entrants", okButton: "OK", cancelButton: nil)
+                    alert.showAlert()
+                } else {
+                    self.entrantsTable.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+
+    // MARK: - Actions
+
+    @IBAction func exportTapped(_ sender: AnyObject) {
+        // TODO: Email csv or xlsx
+        print("EXPORT TAPPED")
+    }
+
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension EventController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
+            return event.entrants.count
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AddItemCellId, for: indexPath) as! AddItemCell
+            return cell
+        } else {
+            let entrant = event.entrants[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: EntrantCellId, for: indexPath) as! EntrantCell
+            cell.layoutFor(entrant: entrant)
+            return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0  {
+            return AddItemCellHeight
+        } else {
+            return EntrantCellHeight
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let viewController = EntrantController.createController()
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 
 }

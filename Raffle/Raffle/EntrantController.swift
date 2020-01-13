@@ -24,8 +24,7 @@ class EntrantController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Enter Drawing"
-        navigationItem.setHidesBackButton(true, animated: false)
+        self.title = "Enter Contest"
     }
 
 }

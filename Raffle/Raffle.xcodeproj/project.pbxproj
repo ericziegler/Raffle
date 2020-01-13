@@ -27,6 +27,7 @@
 		789865A823CBE8C100FEA803 /* EntrantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865A723CBE8C000FEA803 /* EntrantController.swift */; };
 		789865AA23CC0B8E00FEA803 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865A923CC0B8E00FEA803 /* AddItemCell.swift */; };
 		789865AC23CC0BF500FEA803 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865AB23CC0BF500FEA803 /* EventCell.swift */; };
+		789865AE23CC2E7000FEA803 /* EntrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865AD23CC2E7000FEA803 /* EntrantCell.swift */; };
 		78BCEF4D23C7DD1000C16ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCEF4C23C7DD1000C16ABD /* AppDelegate.swift */; };
 		78BCEF4F23C7DD1000C16ABD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCEF4E23C7DD1000C16ABD /* MainController.swift */; };
 		78BCEF5223C7DD1000C16ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BCEF5023C7DD1000C16ABD /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		789865A723CBE8C000FEA803 /* EntrantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrantController.swift; sourceTree = "<group>"; };
 		789865A923CC0B8E00FEA803 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
 		789865AB23CC0BF500FEA803 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		789865AD23CC2E7000FEA803 /* EntrantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrantCell.swift; sourceTree = "<group>"; };
 		78BCEF4923C7DD1000C16ABD /* Rafflebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rafflebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BCEF4C23C7DD1000C16ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BCEF4E23C7DD1000C16ABD /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				789865A923CC0B8E00FEA803 /* AddItemCell.swift */,
 				789865AB23CC0BF500FEA803 /* EventCell.swift */,
+				789865AD23CC2E7000FEA803 /* EntrantCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -125,8 +128,8 @@
 			children = (
 				78BCEF6323C7DD3B00C16ABD /* AppDelegate */,
 				78BCEF6223C7DD3500C16ABD /* ViewControllers */,
-				78BCEF6123C7DD3000C16ABD /* Views */,
 				78BCEF6023C7DD2B00C16ABD /* Data */,
+				78BCEF6123C7DD3000C16ABD /* Views */,
 				78BCEF5F23C7DD2500C16ABD /* Extensions */,
 				7898659E23CB87DA00FEA803 /* ThirdParty */,
 				78BCEF5E23C7DD1A00C16ABD /* Resources */,
@@ -306,6 +309,7 @@
 				076458A623C9EBE700DC7CF8 /* Entrant.swift in Sources */,
 				78BCEF4D23C7DD1000C16ABD /* AppDelegate.swift in Sources */,
 				076458B223CBC8D200DC7CF8 /* CardAlertView.swift in Sources */,
+				789865AE23CC2E7000FEA803 /* EntrantCell.swift in Sources */,
 				78BCEF6623C7DD5B00C16ABD /* BaseNavigationController.swift in Sources */,
 				78BCEF6C23C7DD9A00C16ABD /* Constants.swift in Sources */,
 				076458A423C9EBE100DC7CF8 /* Organization.swift in Sources */,
