@@ -103,6 +103,40 @@ extension String {
 
         return String(self[substringStartIndex ..< substringEndIndex])
     }
+
+    func writeToFile(fileName: String) -> Bool {
+        var status = true
+
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(fileName)
+            do {
+                try self.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch {
+                status = false
+            }
+        } else {
+            status = false
+        }
+
+        return status
+    }
+
+    static func readFromFile(fileName: String) -> String {
+        var result = ""
+
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(fileName)
+            do {
+                result = try String(contentsOf: fileURL, encoding: .utf8)
+            }
+            catch {
+                result = ""
+            }
+        }
+
+        return result
+    }
     
     func aesEncrypt() -> String? {
         do {

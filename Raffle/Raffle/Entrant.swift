@@ -38,7 +38,15 @@ class Entrant {
         if let result = String.formatPhoneNumber(source: phone) {
             return result
         }
-        return ""
+        return "N/A"
     }
-    
+
+    var formattedCSV: String {
+        let cleanFirstName = firstName.replacingOccurrences(of: ",", with: " ")
+        let cleanLastName = lastName.replacingOccurrences(of: ",", with: " ")
+        let cleanEmail = email.replacingOccurrences(of: ",", with: " ")
+        let cleanPhone = formattedPhone.replacingOccurrences(of: ",", with: " ")
+        return "\(cleanFirstName),\(cleanLastName),\(cleanEmail),\(cleanPhone)"
+    }
+
 }

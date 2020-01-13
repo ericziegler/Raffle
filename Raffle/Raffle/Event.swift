@@ -86,4 +86,15 @@ class Event {
         }
     }
 
+    // MARK: - Formatting
+
+    var entrantsCSV: String {
+        var result = ""
+        for curEntrant in entrants {
+            result += curEntrant.formattedCSV
+            result += "\n"
+        }
+        return result
+    }
+
 }

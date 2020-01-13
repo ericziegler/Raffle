@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -653,20 +653,25 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-O4-JRl" customClass="ActionButton" customModule="Rafflebot" customModuleProvider="target">
-                                        <rect key="frame" x="216" y="23" width="182" height="44"/>
+                                        <rect key="frame" x="245.5" y="23" width="130" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="182" id="GJR-1v-CYy"/>
                                             <constraint firstAttribute="height" constant="44" id="J3Z-4L-nqC"/>
+                                            <constraint firstAttribute="width" constant="130" id="M3c-nT-yUA"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="lHc-oZ-Wh2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
-                                        <state key="normal" title="Export Entrants"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
+                                        <state key="normal" title="Export Data"/>
                                         <connections>
                                             <action selector="exportTapped:" destination="dss-bB-LjR" eventType="touchUpInside" id="pVU-hn-BAQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lin-3O-w9z" customClass="ActionButton" customModule="Rafflebot" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="23" width="182" height="44"/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                        <rect key="frame" x="38.5" y="23" width="130" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2sj-yk-Ck9"/>
+                                            <constraint firstAttribute="width" constant="130" id="wSY-cg-lNn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
                                         <state key="normal" title="Pick Winner"/>
                                         <connections>
                                             <action selector="pickWinnerTapped:" destination="dss-bB-LjR" eventType="touchUpInside" id="8Oq-H8-6Yl"/>
@@ -675,14 +680,12 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="Lin-3O-w9z" firstAttribute="height" secondItem="ieo-O4-JRl" secondAttribute="height" id="B30-qa-bHZ"/>
+                                    <constraint firstItem="Lin-3O-w9z" firstAttribute="centerX" secondItem="YRw-Q3-lfA" secondAttribute="centerX" multiplier="0.5" id="0nn-rf-pmE"/>
                                     <constraint firstItem="K4s-hm-tCg" firstAttribute="leading" secondItem="YRw-Q3-lfA" secondAttribute="leading" id="Hdy-Vi-5g6"/>
                                     <constraint firstAttribute="height" constant="100" id="IYS-Qd-v56"/>
-                                    <constraint firstItem="Lin-3O-w9z" firstAttribute="width" secondItem="ieo-O4-JRl" secondAttribute="width" id="KlV-gX-F2m"/>
                                     <constraint firstAttribute="trailing" secondItem="K4s-hm-tCg" secondAttribute="trailing" id="P0n-zY-Npg"/>
-                                    <constraint firstItem="ieo-O4-JRl" firstAttribute="leading" secondItem="Lin-3O-w9z" secondAttribute="trailing" constant="18" id="W5x-8T-N68"/>
+                                    <constraint firstItem="ieo-O4-JRl" firstAttribute="centerX" secondItem="YRw-Q3-lfA" secondAttribute="centerX" multiplier="1.5" id="XKK-LP-Ia9"/>
                                     <constraint firstItem="K4s-hm-tCg" firstAttribute="top" secondItem="YRw-Q3-lfA" secondAttribute="top" id="w5s-OM-XJB"/>
-                                    <constraint firstAttribute="trailing" secondItem="ieo-O4-JRl" secondAttribute="trailing" constant="16" id="w7z-iY-XlH"/>
                                     <constraint firstItem="Lin-3O-w9z" firstAttribute="centerY" secondItem="ieo-O4-JRl" secondAttribute="centerY" id="wQJ-c0-oQg"/>
                                     <constraint firstItem="ieo-O4-JRl" firstAttribute="centerY" secondItem="YRw-Q3-lfA" secondAttribute="centerY" constant="-5" id="y9A-gd-ZZv"/>
                                 </constraints>
