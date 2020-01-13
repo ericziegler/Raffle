@@ -41,8 +41,6 @@ class EventController: BaseViewController {
         refreshControl.addTarget(self, action: #selector(refreshEntrants(_:)), for: .valueChanged)
         nameLabel.text = event.name
         navigationItem.setHidesBackButton(false, animated: false)
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped(_:)))
-        navigationItem.rightBarButtonItem = logoutButton        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,18 +134,6 @@ class EventController: BaseViewController {
             let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "No Email Found", message: "This device must be connected to an email account to export.", okButton: "OK", cancelButton: nil)
             alert.showAlert()
         }
-    }
-
-    @objc func logoutTapped(_ sender: AnyObject) {
-        promptForPassword()
-    }
-
-    // MARK: - Helpers
-
-    private func promptForPassword() {
-        let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Logout", message: "Are you sure you want to logout?", okButton: "Logout", cancelButton: "Cancel")
-        alert.delegate = self
-        alert.showAlert()
     }
 
 }
