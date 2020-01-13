@@ -38,6 +38,8 @@ class OrganizationController: BaseViewController {
         refreshControl.addTarget(self, action: #selector(refreshEvents(_:)), for: .valueChanged)
         nameLabel.text = organization.name
         navigationItem.setHidesBackButton(true, animated: false)
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped(_:)))
+        navigationItem.rightBarButtonItem = logoutButton
     }
     
     // MARK: - Actions
@@ -52,6 +54,18 @@ class OrganizationController: BaseViewController {
                 }
             }
         }
+    }
+
+    @objc func logoutTapped(_ sender: AnyObject) {
+        promptForPassword()
+    }
+
+    // MARK: - Helpers
+
+    private func promptForPassword() {
+        let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Logout", message: "Are you sure you want to logout?", okButton: "Logout", cancelButton: "Cancel")
+        alert.delegate = self
+        alert.showAlert()
     }
 
 }
@@ -124,4 +138,18 @@ extension OrganizationController: TextAlertViewDelegate {
         }
     }
     
+}
+
+// MARK: - CardAlertViewDelegate
+
+extension OrganizationController: CardAlertViewDelegate {
+    func okTappedForCardAlertView(alertView: CardAlertView) {
+        Organization.shared.logout()
+        navigationController?.popToRootViewController(animated: true)
+    }
+
+    func cancelTappedForCardAlertView(alertView: CardAlertView) {
+        // do nothing
+    }
+
 }

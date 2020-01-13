@@ -32,7 +32,7 @@ class SignInController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sign In"
+        title = "Log In"
         textFieldBackground.layer.cornerRadius = 10
         textFieldBackground.layer.borderColor = UIColor(hex: 0xdddddd).cgColor
         textFieldBackground.layer.borderWidth = 1.5
@@ -46,13 +46,13 @@ class SignInController: BaseViewController {
         if emailField.isNilOrEmpty() == false && passwordField.isNilOrEmpty() == false, let password =  Organization.encodePassword(passwordField.text) {            
             view.endEditing(true)
             resetTopConstraint()
-            progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Signing In")
+            progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Logging In")
             Organization.shared.loginWith(email: emailField.text!, password: password) { (error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.progressView?.hideProgress()
                     self.progressView = nil
                     if let _ = error {
-                        let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Sign In Failed", message: "We were unable to sign in using this email and password.", okButton: "OK", cancelButton: nil)
+                        let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Log In Failed", message: "We were unable to log in using this email and password.", okButton: "OK", cancelButton: nil)
                         alert.showAlert()
                     } else {
                         let viewController = OrganizationController.createController()

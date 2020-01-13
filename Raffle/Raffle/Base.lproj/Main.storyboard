@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="55" id="NYR-gz-Qtn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="32"/>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vN9-zg-ytk"/>
                                 </connections>
@@ -151,7 +151,7 @@
                                             <constraint firstAttribute="height" constant="44" id="zdp-6J-XYh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
-                                        <state key="normal" title="Sign In"/>
+                                        <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="signInTapped:" destination="Lgb-Vs-FZw" eventType="touchUpInside" id="MTo-je-dwf"/>
                                         </connections>

@@ -40,6 +40,8 @@ class EventController: BaseViewController {
         refreshControl.addTarget(self, action: #selector(refreshEntrants(_:)), for: .valueChanged)
         nameLabel.text = event.name
         navigationItem.setHidesBackButton(false, animated: false)
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped(_:)))
+        navigationItem.rightBarButtonItem = logoutButton
         loadEntrants()
     }
 
@@ -72,6 +74,18 @@ class EventController: BaseViewController {
     @IBAction func exportTapped(_ sender: AnyObject) {
         // TODO: Email csv or xlsx
         print("EXPORT TAPPED")
+    }
+
+    @objc func logoutTapped(_ sender: AnyObject) {
+        promptForPassword()
+    }
+
+    // MARK: - Helpers
+
+    private func promptForPassword() {
+        let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Logout", message: "Are you sure you want to logout?", okButton: "Logout", cancelButton: "Cancel")
+        alert.delegate = self
+        alert.showAlert()
     }
 
 }
@@ -117,6 +131,20 @@ extension EventController: UITableViewDataSource, UITableViewDelegate {
             let viewController = EntrantController.createController()
             navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+
+}
+
+// MARK: - CardAlertViewDelegate
+
+extension EventController: CardAlertViewDelegate {
+    func okTappedForCardAlertView(alertView: CardAlertView) {
+        Organization.shared.logout()
+        navigationController?.popToRootViewController(animated: true)
+    }
+
+    func cancelTappedForCardAlertView(alertView: CardAlertView) {
+        // do nothing
     }
 
 }
