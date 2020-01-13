@@ -68,7 +68,7 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 1
         } else {
-            return organization.events.count
+            return organization.sortedEvents.count
         }
     }
     
@@ -77,7 +77,7 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: AddItemCellId, for: indexPath) as! AddItemCell
             return cell
         } else {
-            let event = organization.events[indexPath.row]
+            let event = organization.sortedEvents[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: EventCellId, for: indexPath) as! EventCell
             cell.layoutFor(event: event)
             return cell
@@ -98,7 +98,7 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
             alert.delegate = self
             alert.showAlert()
         } else {
-            let event = organization.events[indexPath.row]
+            let event = organization.sortedEvents[indexPath.row]
             let viewController = EventController.createControllerFor(event: event)
             navigationController?.pushViewController(viewController, animated: true)
         }

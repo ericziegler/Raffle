@@ -17,6 +17,9 @@ class Organization {
     var email = ""
     var password = ""
     var events = [Event]()
+    var sortedEvents: [Event] {
+        return events.sorted(by: { $0.timestamp > $1.timestamp })
+    }
 
     // MARK: - Init
 

@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -418,21 +418,12 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sly-xZ-qBl" customClass="RegularLabel" customModule="Rafflebot" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="8" width="293.5" height="27"/>
+                                                            <rect key="frame" x="8" y="19" width="293.5" height="27"/>
                                                             <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsC-36-hpm" customClass="LightLabel" customModule="Rafflebot" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="37" width="135.5" height="21"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="Ul8-Cj-Ttq"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="16"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 entrants" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrK-Y6-6GV" customClass="RegularLabel" customModule="Rafflebot" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrK-Y6-6GV" customClass="RegularLabel" customModule="Rafflebot" customModuleProvider="target">
                                                             <rect key="frame" x="309" y="22" width="97" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="97" id="1N8-Ua-tox"/>
@@ -447,14 +438,11 @@
                                                     <constraints>
                                                         <constraint firstItem="oav-RN-pJ0" firstAttribute="leading" secondItem="f9o-tt-Ioa" secondAttribute="leading" id="3dS-BG-lty"/>
                                                         <constraint firstAttribute="trailing" secondItem="oav-RN-pJ0" secondAttribute="trailing" id="8yb-9l-ZtW"/>
-                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="width" secondItem="sly-xZ-qBl" secondAttribute="width" multiplier="0.461386" id="BDU-8m-5Ke"/>
-                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="leading" secondItem="sly-xZ-qBl" secondAttribute="leading" id="Iyj-dT-Bip"/>
                                                         <constraint firstItem="WrK-Y6-6GV" firstAttribute="centerY" secondItem="f9o-tt-Ioa" secondAttribute="centerY" id="JDQ-Jx-m4I"/>
                                                         <constraint firstAttribute="bottom" secondItem="oav-RN-pJ0" secondAttribute="bottom" id="MCP-6x-Nh8"/>
+                                                        <constraint firstItem="sly-xZ-qBl" firstAttribute="centerY" secondItem="WrK-Y6-6GV" secondAttribute="centerY" id="dfE-TC-3gD"/>
                                                         <constraint firstItem="WrK-Y6-6GV" firstAttribute="leading" secondItem="sly-xZ-qBl" secondAttribute="trailing" constant="7.5" id="gR8-dG-tvd"/>
                                                         <constraint firstAttribute="trailing" secondItem="WrK-Y6-6GV" secondAttribute="trailing" constant="8" id="iZf-cR-uyu"/>
-                                                        <constraint firstItem="sly-xZ-qBl" firstAttribute="top" secondItem="f9o-tt-Ioa" secondAttribute="top" constant="8" id="r3e-dz-QAE"/>
-                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="top" secondItem="sly-xZ-qBl" secondAttribute="bottom" constant="2" id="rcG-SC-ajn"/>
                                                         <constraint firstItem="sly-xZ-qBl" firstAttribute="leading" secondItem="f9o-tt-Ioa" secondAttribute="leading" constant="8" id="sYA-ho-gv6"/>
                                                     </constraints>
                                                 </view>
@@ -467,8 +455,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="xsC-36-hpm" id="nUR-ld-Rk1"/>
-                                            <outlet property="entrantsLabel" destination="WrK-Y6-6GV" id="2Cv-OT-so4"/>
+                                            <outlet property="dateLabel" destination="WrK-Y6-6GV" id="Kwz-eb-OQ7"/>
                                             <outlet property="nameLabel" destination="sly-xZ-qBl" id="51F-fr-MQr"/>
                                         </connections>
                                     </tableViewCell>

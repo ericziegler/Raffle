@@ -18,8 +18,7 @@ class EventCell: UITableViewCell {
     // MARK: - Properties
 
     @IBOutlet var nameLabel: RegularLabel!
-    @IBOutlet var dateLabel: LightLabel!
-    @IBOutlet var entrantsLabel: RegularLabel!
+    @IBOutlet var dateLabel: RegularLabel!
 
     // MARK: - Init
 
@@ -34,12 +33,6 @@ class EventCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "M/d/yyyy"
         dateLabel.text = formatter.string(from: Date(timeIntervalSince1970: event.timestamp))
-        let entrantCount = event.entrants.count
-        if entrantCount == 1 {
-            entrantsLabel.text = "1 entrant"
-        } else {
-            entrantsLabel.text = "\(entrantCount) entrants"
-        }
     }
 
 }
