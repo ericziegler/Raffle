@@ -123,7 +123,7 @@ class Organization {
     func addEventWith(name: String, completion: @escaping RequestCompletionBlock) {
         let eventId = UUID().uuidString
         let eventTimestamp = String(Date().timeIntervalSince1970)
-        if let request = buildRequestFor(fileName: "add_event.php", params: ["organization_id" : identifier, "event_name" : name, "event_id" : eventId, "timestamp" : eventTimestamp]) {
+        if let request = buildRequestFor(fileName: "add_event.php", params: ["organization_id" : identifier, "name" : name, "id" : eventId, "timestamp" : eventTimestamp]) {
             let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
                 let response = buildJSONResponse(data: data, error: error)
                 if let error = response.1 {

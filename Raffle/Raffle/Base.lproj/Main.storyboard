@@ -484,13 +484,23 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyl-Mc-SpP" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="121" width="414" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="L4s-3k-7md"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7s3-nX-U54" firstAttribute="leading" secondItem="80v-Ms-x1j" secondAttribute="leading" id="0rW-ik-s13"/>
                             <constraint firstItem="R1k-lC-59M" firstAttribute="leading" secondItem="80v-Ms-x1j" secondAttribute="leading" constant="12" id="633-LZ-NRo"/>
+                            <constraint firstItem="80v-Ms-x1j" firstAttribute="trailing" secondItem="Xyl-Mc-SpP" secondAttribute="trailing" id="8Oy-T0-ccI"/>
                             <constraint firstItem="bSJ-aW-ztV" firstAttribute="top" secondItem="R1k-lC-59M" secondAttribute="bottom" constant="11" id="Bew-Lb-GKu"/>
                             <constraint firstItem="bSJ-aW-ztV" firstAttribute="leading" secondItem="R1k-lC-59M" secondAttribute="leading" id="Fxf-ly-C18"/>
+                            <constraint firstItem="7s3-nX-U54" firstAttribute="top" secondItem="Xyl-Mc-SpP" secondAttribute="bottom" id="R3G-36-OZS"/>
+                            <constraint firstItem="Xyl-Mc-SpP" firstAttribute="leading" secondItem="80v-Ms-x1j" secondAttribute="leading" id="eqC-I5-vnI"/>
                             <constraint firstItem="80v-Ms-x1j" firstAttribute="trailing" secondItem="R1k-lC-59M" secondAttribute="trailing" constant="12" id="h0h-6j-lfe"/>
                             <constraint firstItem="R1k-lC-59M" firstAttribute="top" secondItem="80v-Ms-x1j" secondAttribute="top" constant="15" id="sxa-Mf-Ikx"/>
                             <constraint firstAttribute="bottom" secondItem="7s3-nX-U54" secondAttribute="bottom" id="uSs-jg-Yj6"/>

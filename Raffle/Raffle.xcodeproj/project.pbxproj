@@ -18,6 +18,8 @@
 		076458B023CBC0ED00DC7CF8 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076458AF23CBC0ED00DC7CF8 /* ProgressView.xib */; };
 		076458B223CBC8D200DC7CF8 /* CardAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076458B123CBC8D200DC7CF8 /* CardAlertView.swift */; };
 		076458B423CBC8E100DC7CF8 /* CardAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076458B323CBC8E100DC7CF8 /* CardAlertView.xib */; };
+		07C64E0E23CC1BC400057262 /* TextAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C64E0D23CC1BC400057262 /* TextAlertView.swift */; };
+		07C64E1023CC1BD200057262 /* TextAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C64E0F23CC1BD200057262 /* TextAlertView.xib */; };
 		789865A023CB87EF00FEA803 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898659F23CB87EF00FEA803 /* SwiftyJSON.swift */; };
 		789865A223CB893300FEA803 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865A123CB893300FEA803 /* API.swift */; };
 		789865A423CBE6EB00FEA803 /* OrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789865A323CBE6EB00FEA803 /* OrganizationController.swift */; };
@@ -50,6 +52,8 @@
 		076458AF23CBC0ED00DC7CF8 /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		076458B123CBC8D200DC7CF8 /* CardAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAlertView.swift; sourceTree = "<group>"; };
 		076458B323CBC8E100DC7CF8 /* CardAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardAlertView.xib; sourceTree = "<group>"; };
+		07C64E0D23CC1BC400057262 /* TextAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlertView.swift; sourceTree = "<group>"; };
+		07C64E0F23CC1BD200057262 /* TextAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAlertView.xib; sourceTree = "<group>"; };
 		7898659F23CB87EF00FEA803 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		789865A123CB893300FEA803 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		789865A323CBE6EB00FEA803 /* OrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07C64E1123CC1BF000057262 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				789865A923CC0B8E00FEA803 /* AddItemCell.swift */,
+				789865AB23CC0BF500FEA803 /* EventCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		7898659E23CB87DA00FEA803 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +173,9 @@
 				076458AF23CBC0ED00DC7CF8 /* ProgressView.xib */,
 				076458B123CBC8D200DC7CF8 /* CardAlertView.swift */,
 				076458B323CBC8E100DC7CF8 /* CardAlertView.xib */,
-				789865A923CC0B8E00FEA803 /* AddItemCell.swift */,
-				789865AB23CC0BF500FEA803 /* EventCell.swift */,
+				07C64E0D23CC1BC400057262 /* TextAlertView.swift */,
+				07C64E0F23CC1BD200057262 /* TextAlertView.xib */,
+				07C64E1123CC1BF000057262 /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -262,6 +276,7 @@
 				076458B023CBC0ED00DC7CF8 /* ProgressView.xib in Resources */,
 				78BCEF5423C7DD1000C16ABD /* Assets.xcassets in Resources */,
 				076458B423CBC8E100DC7CF8 /* CardAlertView.xib in Resources */,
+				07C64E1023CC1BD200057262 /* TextAlertView.xib in Resources */,
 				78BCEF5223C7DD1000C16ABD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +292,7 @@
 				78BCEF4F23C7DD1000C16ABD /* MainController.swift in Sources */,
 				78BCEF6E23C7DDA900C16ABD /* UIKItExtensions.swift in Sources */,
 				78BCEF6823C7DD6400C16ABD /* BaseViewController.swift in Sources */,
+				07C64E0E23CC1BC400057262 /* TextAlertView.swift in Sources */,
 				789865AC23CC0BF500FEA803 /* EventCell.swift in Sources */,
 				789865A023CB87EF00FEA803 /* SwiftyJSON.swift in Sources */,
 				789865A623CBE88300FEA803 /* EventController.swift in Sources */,

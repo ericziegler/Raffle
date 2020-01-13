@@ -94,7 +94,9 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            // TODO: Add event
+            let alert = TextAlertView.createAlertFor(parentController: navigationController!, title: "Add a New Event", placeholder: "Event Name", okButton: "Add", cancelButton: "Cancel")
+            alert.delegate = self
+            alert.showAlert()
         } else {
             let event = organization.events[indexPath.row]
             let viewController = EventController.createControllerFor(event: event)
@@ -102,5 +104,23 @@ extension OrganizationController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
+}
+
+// MARK: - TextAlertViewDelegate
+
+extension OrganizationController: TextAlertViewDelegate {
+    func okTappedForCardAlertView(alertView: TextAlertView, text: String) {
+        organization.addEventWith(name: text) { [unowned self] (error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Couldn't Add Event", message: "We were unable to add this event.", okButton: "OK", cancelButton: nil)
+                    alert.showAlert()
+                } else {
+                    self.eventsTable.reloadData()
+                }
+            }
+        }
+    }
     
 }

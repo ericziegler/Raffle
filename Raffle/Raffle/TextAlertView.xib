@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="OPe-ER-eyo" customClass="TextAlertView" customModule="Rafflebot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GG-J7-JOA">
+                    <rect key="frame" x="40" y="149" width="334" height="190"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myO-4u-lCh" customClass="BoldButton" customModule="Rafflebot">
+                            <rect key="frame" x="8" y="138" width="318" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="htR-r7-G8W"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Single Button">
+                                <color key="titleColor" red="0.08235294118" green="0.69019607839999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="okTapped:" destination="OPe-ER-eyo" eventType="touchUpInside" id="epX-gH-kSD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-6q-VBN" customClass="BoldButton" customModule="Rafflebot">
+                            <rect key="frame" x="8" y="138" width="159" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" red="0.08235294118" green="0.69019607839999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelTapped:" destination="OPe-ER-eyo" eventType="touchUpInside" id="rXE-BY-zhR"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfn-r5-LKp" userLabel="Separator">
+                            <rect key="frame" x="0.0" y="129" width="334" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="UCf-lo-0mq"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-Tq-Efp" customClass="BoldLabel" customModule="Rafflebot">
+                            <rect key="frame" x="8" y="15" width="318" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="Pwi-TV-tSz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlp-Zl-kn1" customClass="BoldButton" customModule="Rafflebot">
+                            <rect key="frame" x="167" y="138" width="159" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="dZi-ei-zrd"/>
+                                <constraint firstAttribute="width" constant="159" id="wn0-aN-XZt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" red="0.08235294118" green="0.69019607839999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="okTapped:" destination="OPe-ER-eyo" eventType="touchUpInside" id="tzJ-9j-Ysh"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojK-1i-gNv" customClass="StyledTextField" customModule="Rafflebot" customModuleProvider="target">
+                            <rect key="frame" x="8" y="59" width="312" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="51" id="MyW-6W-MZS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="19"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="OPe-ER-eyo" id="7RN-tr-YcU"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="334" id="0zy-GG-rOs"/>
+                        <constraint firstItem="nlp-Zl-kn1" firstAttribute="top" secondItem="nfn-r5-LKp" secondAttribute="bottom" constant="8" id="5Q0-Ka-9Io"/>
+                        <constraint firstItem="myO-4u-lCh" firstAttribute="top" secondItem="nfn-r5-LKp" secondAttribute="bottom" constant="8" id="A73-R1-KbZ"/>
+                        <constraint firstItem="ryh-6q-VBN" firstAttribute="width" secondItem="nlp-Zl-kn1" secondAttribute="width" id="ATI-Yb-O5E"/>
+                        <constraint firstAttribute="height" constant="190" id="Dd9-SU-0do"/>
+                        <constraint firstItem="ojK-1i-gNv" firstAttribute="leading" secondItem="1GG-J7-JOA" secondAttribute="leading" constant="8" id="Dfh-ur-8aE"/>
+                        <constraint firstItem="myO-4u-lCh" firstAttribute="leading" secondItem="1GG-J7-JOA" secondAttribute="leading" constant="8" id="GjJ-LP-6rB"/>
+                        <constraint firstAttribute="bottom" secondItem="myO-4u-lCh" secondAttribute="bottom" constant="8" id="HT1-ow-ALZ"/>
+                        <constraint firstItem="Tn2-Tq-Efp" firstAttribute="leading" secondItem="1GG-J7-JOA" secondAttribute="leading" constant="8" id="La3-6K-neV"/>
+                        <constraint firstItem="nfn-r5-LKp" firstAttribute="leading" secondItem="1GG-J7-JOA" secondAttribute="leading" id="MkV-zc-Hy8"/>
+                        <constraint firstItem="ryh-6q-VBN" firstAttribute="leading" secondItem="1GG-J7-JOA" secondAttribute="leading" constant="8" id="O1T-Y0-tUH"/>
+                        <constraint firstAttribute="trailing" secondItem="myO-4u-lCh" secondAttribute="trailing" constant="8" id="ShZ-Fe-LsD"/>
+                        <constraint firstItem="ryh-6q-VBN" firstAttribute="height" secondItem="nlp-Zl-kn1" secondAttribute="height" id="UFv-8F-XTV"/>
+                        <constraint firstItem="Tn2-Tq-Efp" firstAttribute="top" secondItem="1GG-J7-JOA" secondAttribute="top" constant="15" id="W4H-bW-eva"/>
+                        <constraint firstAttribute="trailing" secondItem="nlp-Zl-kn1" secondAttribute="trailing" constant="8" id="fJF-pU-D2X"/>
+                        <constraint firstItem="ojK-1i-gNv" firstAttribute="top" secondItem="Tn2-Tq-Efp" secondAttribute="bottom" constant="8" id="kuf-UG-0DD"/>
+                        <constraint firstAttribute="trailing" secondItem="Tn2-Tq-Efp" secondAttribute="trailing" constant="8" id="sKk-Yt-XGr"/>
+                        <constraint firstAttribute="trailing" secondItem="nfn-r5-LKp" secondAttribute="trailing" id="t0P-ot-5n0"/>
+                        <constraint firstAttribute="trailing" secondItem="ojK-1i-gNv" secondAttribute="trailing" constant="14" id="t4R-86-xVb"/>
+                        <constraint firstItem="ryh-6q-VBN" firstAttribute="top" secondItem="nlp-Zl-kn1" secondAttribute="top" id="xjR-9R-2gh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="1GG-J7-JOA" firstAttribute="centerX" secondItem="OPe-ER-eyo" secondAttribute="centerX" id="XW0-gg-vk5"/>
+                <constraint firstItem="1GG-J7-JOA" firstAttribute="top" secondItem="QUh-Em-I1T" secondAttribute="top" constant="105" id="oib-V7-IDl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="QUh-Em-I1T"/>
+            <connections>
+                <outlet property="alertViewTopConstraint" destination="oib-V7-IDl" id="9Qb-yh-ONG"/>
+                <outlet property="bgView" destination="1GG-J7-JOA" id="ciE-Ie-Hw6"/>
+                <outlet property="cancelButton" destination="ryh-6q-VBN" id="iLT-I5-rHz"/>
+                <outlet property="entryField" destination="ojK-1i-gNv" id="5So-xv-6Z1"/>
+                <outlet property="okButton" destination="nlp-Zl-kn1" id="tEk-iT-8pe"/>
+                <outlet property="singleButton" destination="myO-4u-lCh" id="YaZ-as-lbq"/>
+                <outlet property="titleLabel" destination="Tn2-Tq-Efp" id="sju-4Q-isH"/>
+            </connections>
+            <point key="canvasLocation" x="69.565217391304358" y="28.794642857142854"/>
+        </view>
+    </objects>
+</document>
