@@ -22,6 +22,7 @@ func buildRequestFor(fileName: String, params: [String : String]) -> URLRequest?
     if let url = urlComponents.url {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         return request
     }
 
