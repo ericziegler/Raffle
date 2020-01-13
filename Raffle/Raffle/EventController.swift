@@ -14,11 +14,16 @@ let EventControllerId = "EventControllerId"
 
 class EventController: BaseViewController {
 
+    // MARK: - Properties
+    
+    var event: Event!
+    
     // MARK: - Init
 
-    static func createController() ->  EventController {
+    static func createControllerFor(event: Event) ->  EventController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController: EventController = storyboard.instantiateViewController(withIdentifier: EventControllerId) as! EventController
+        viewController.event = event
         return viewController
     }
 

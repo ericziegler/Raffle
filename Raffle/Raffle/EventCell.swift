@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Constants
 
 let EventCellId = "EventCellId"
-let EventCellHeight: CGFloat = 45
+let EventCellHeight: CGFloat = 65
 
 class EventCell: UITableViewCell {
 
@@ -34,7 +34,12 @@ class EventCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "M/d/yyyy"
         dateLabel.text = formatter.string(from: Date(timeIntervalSince1970: event.timestamp))
-        entrantsLabel.text = "\(event.entrants.count) entrants"
+        let entrantCount = event.entrants.count
+        if entrantCount == 1 {
+            entrantsLabel.text = "1 entrant"
+        } else {
+            entrantsLabel.text = "\(entrantCount) entrants"
+        }
     }
 
 }

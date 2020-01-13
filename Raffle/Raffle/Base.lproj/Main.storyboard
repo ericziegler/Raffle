@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -346,28 +346,140 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1k-lC-59M" customClass="ActionLabel" customModule="Rafflebot" customModuleProvider="target">
-                                <rect key="frame" x="12" y="44" width="390" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1k-lC-59M" customClass="TitleLabel" customModule="Rafflebot" customModuleProvider="target">
+                                <rect key="frame" x="12" y="59" width="390" height="29"/>
                                 <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
                                 <color key="textColor" red="0.28627450980392155" green="0.65490196078431373" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7s3-nX-U54">
-                                <rect key="frame" x="0.0" y="107" width="414" height="789"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="1Ic-GW-gkD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddItemCellId" rowHeight="75" id="1Ic-GW-gkD" customClass="AddItemCell" customModule="Rafflebot" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ic-GW-gkD" id="p9B-S5-vku">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxm-q5-K7W">
+                                                    <rect key="frame" x="10" y="10" width="394" height="55"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add" translatesAutoresizingMaskIntoConstraints="NO" id="Bcp-cW-QLz">
+                                                            <rect key="frame" x="20" y="12.5" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="NAk-OK-Oze"/>
+                                                                <constraint firstAttribute="height" constant="30" id="w1W-hO-CAG"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add a new event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSX-DM-rI5" customClass="BoldLabel" customModule="Rafflebot" customModuleProvider="target">
+                                                            <rect key="frame" x="66" y="14.5" width="232.5" height="26.5"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="20"/>
+                                                            <color key="textColor" red="0.85098039215686272" green="0.21568627450980393" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="uSX-DM-rI5" firstAttribute="leading" secondItem="Bcp-cW-QLz" secondAttribute="trailing" constant="16" id="39m-Kc-yDZ"/>
+                                                        <constraint firstItem="uSX-DM-rI5" firstAttribute="centerY" secondItem="Bcp-cW-QLz" secondAttribute="centerY" id="EbS-Fw-FO9"/>
+                                                        <constraint firstItem="Bcp-cW-QLz" firstAttribute="leading" secondItem="uxm-q5-K7W" secondAttribute="leading" constant="20" id="Edx-bI-Cu7"/>
+                                                        <constraint firstItem="Bcp-cW-QLz" firstAttribute="centerY" secondItem="uxm-q5-K7W" secondAttribute="centerY" id="eNO-RH-J90"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="uxm-q5-K7W" secondAttribute="bottom" constant="10" id="brD-1l-ftB"/>
+                                                <constraint firstAttribute="trailing" secondItem="uxm-q5-K7W" secondAttribute="trailing" constant="10" id="ip3-DR-VaT"/>
+                                                <constraint firstItem="uxm-q5-K7W" firstAttribute="leading" secondItem="p9B-S5-vku" secondAttribute="leading" constant="10" id="kI8-rz-gnH"/>
+                                                <constraint firstItem="uxm-q5-K7W" firstAttribute="top" secondItem="p9B-S5-vku" secondAttribute="top" constant="10" id="lzU-7B-Cfp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bgView" destination="uxm-q5-K7W" id="6Gn-tf-xmq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventCellId" rowHeight="65" id="Kt1-qG-Mot" customClass="EventCell" customModule="Rafflebot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="103" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kt1-qG-Mot" id="XFH-0J-tJC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9o-tt-Ioa" userLabel="BG View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oav-RN-pJ0" userLabel="Separator">
+                                                            <rect key="frame" x="0.0" y="64" width="414" height="1"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="mo6-lH-7bU"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sly-xZ-qBl" customClass="RegularLabel" customModule="Rafflebot" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="8" width="293.5" height="27"/>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsC-36-hpm" customClass="LightLabel" customModule="Rafflebot" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="37" width="135.5" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="Ul8-Cj-Ttq"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="16"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 entrants" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrK-Y6-6GV" customClass="RegularLabel" customModule="Rafflebot" customModuleProvider="target">
+                                                            <rect key="frame" x="309" y="22" width="97" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="97" id="1N8-Ua-tox"/>
+                                                                <constraint firstAttribute="height" constant="21" id="KPG-QK-G6T"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="16"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="oav-RN-pJ0" firstAttribute="leading" secondItem="f9o-tt-Ioa" secondAttribute="leading" id="3dS-BG-lty"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oav-RN-pJ0" secondAttribute="trailing" id="8yb-9l-ZtW"/>
+                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="width" secondItem="sly-xZ-qBl" secondAttribute="width" multiplier="0.461386" id="BDU-8m-5Ke"/>
+                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="leading" secondItem="sly-xZ-qBl" secondAttribute="leading" id="Iyj-dT-Bip"/>
+                                                        <constraint firstItem="WrK-Y6-6GV" firstAttribute="centerY" secondItem="f9o-tt-Ioa" secondAttribute="centerY" id="JDQ-Jx-m4I"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oav-RN-pJ0" secondAttribute="bottom" id="MCP-6x-Nh8"/>
+                                                        <constraint firstItem="WrK-Y6-6GV" firstAttribute="leading" secondItem="sly-xZ-qBl" secondAttribute="trailing" constant="7.5" id="gR8-dG-tvd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WrK-Y6-6GV" secondAttribute="trailing" constant="8" id="iZf-cR-uyu"/>
+                                                        <constraint firstItem="sly-xZ-qBl" firstAttribute="top" secondItem="f9o-tt-Ioa" secondAttribute="top" constant="8" id="r3e-dz-QAE"/>
+                                                        <constraint firstItem="xsC-36-hpm" firstAttribute="top" secondItem="sly-xZ-qBl" secondAttribute="bottom" constant="2" id="rcG-SC-ajn"/>
+                                                        <constraint firstItem="sly-xZ-qBl" firstAttribute="leading" secondItem="f9o-tt-Ioa" secondAttribute="leading" constant="8" id="sYA-ho-gv6"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f9o-tt-Ioa" firstAttribute="leading" secondItem="XFH-0J-tJC" secondAttribute="leading" id="01c-Qz-5Uu"/>
+                                                <constraint firstAttribute="bottom" secondItem="f9o-tt-Ioa" secondAttribute="bottom" id="HIz-79-sQ5"/>
+                                                <constraint firstItem="f9o-tt-Ioa" firstAttribute="top" secondItem="XFH-0J-tJC" secondAttribute="top" id="bb2-JE-DmH"/>
+                                                <constraint firstAttribute="trailing" secondItem="f9o-tt-Ioa" secondAttribute="trailing" id="pYU-Jc-ziK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="xsC-36-hpm" id="nUR-ld-Rk1"/>
+                                            <outlet property="entrantsLabel" destination="WrK-Y6-6GV" id="2Cv-OT-so4"/>
+                                            <outlet property="nameLabel" destination="sly-xZ-qBl" id="51F-fr-MQr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NvP-aX-MNr" id="AEc-xO-CzO"/>
+                                    <outlet property="delegate" destination="NvP-aX-MNr" id="by7-3g-EgE"/>
+                                </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-aW-ztV" customClass="BoldLabel" customModule="Rafflebot" customModuleProvider="target">
-                                <rect key="frame" x="12" y="84" width="89" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-aW-ztV" customClass="BoldLabel" customModule="Rafflebot" customModuleProvider="target">
+                                <rect key="frame" x="12" y="99" width="113.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="15"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -380,13 +492,17 @@
                             <constraint firstItem="bSJ-aW-ztV" firstAttribute="top" secondItem="R1k-lC-59M" secondAttribute="bottom" constant="11" id="Bew-Lb-GKu"/>
                             <constraint firstItem="bSJ-aW-ztV" firstAttribute="leading" secondItem="R1k-lC-59M" secondAttribute="leading" id="Fxf-ly-C18"/>
                             <constraint firstItem="80v-Ms-x1j" firstAttribute="trailing" secondItem="R1k-lC-59M" secondAttribute="trailing" constant="12" id="h0h-6j-lfe"/>
-                            <constraint firstItem="R1k-lC-59M" firstAttribute="top" secondItem="80v-Ms-x1j" secondAttribute="top" id="sxa-Mf-Ikx"/>
+                            <constraint firstItem="R1k-lC-59M" firstAttribute="top" secondItem="80v-Ms-x1j" secondAttribute="top" constant="15" id="sxa-Mf-Ikx"/>
                             <constraint firstAttribute="bottom" secondItem="7s3-nX-U54" secondAttribute="bottom" id="uSs-jg-Yj6"/>
                             <constraint firstItem="7s3-nX-U54" firstAttribute="trailing" secondItem="80v-Ms-x1j" secondAttribute="trailing" id="yV5-bg-stg"/>
                             <constraint firstItem="7s3-nX-U54" firstAttribute="top" secondItem="bSJ-aW-ztV" secondAttribute="bottom" constant="3" id="zgQ-HB-tke"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="80v-Ms-x1j"/>
                     </view>
+                    <connections>
+                        <outlet property="eventsTable" destination="7s3-nX-U54" id="6Qv-QK-c9B"/>
+                        <outlet property="nameLabel" destination="R1k-lC-59M" id="Z9U-mO-6Ld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJ5-Q0-XWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -424,6 +540,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add" width="40" height="40"/>
         <image name="Logo" width="512" height="512"/>
     </resources>
 </document>

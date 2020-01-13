@@ -91,6 +91,12 @@ class LightLabel: ApplicationStyleLabel {
     }
 }
 
+class TitleLabel: ApplicationStyleLabel {
+    override func commonInit() {
+        self.font = UIFont.applicationTitleFontOfSize(self.font.pointSize)
+    }
+}
+
 class ActionLabel: ApplicationStyleLabel {
     override func commonInit() {
         self.font = UIFont.applicationActionFontOfSize(self.font.pointSize)
