@@ -25,7 +25,6 @@ class EntrantController: BaseViewController {
 
     var progressView: ProgressView!
     var event: Event!
-    var loggingOut = false
 
     // MARK: - Init
 
@@ -51,9 +50,6 @@ class EntrantController: BaseViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         let backButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeTapped(_:)))
         navigationItem.leftBarButtonItem = backButton
-
-        let logoutButton = UIBarButtonItem(title: "Admin Logout", style: .plain, target: self, action: #selector(logoutTapped(_:)))
-        navigationItem.rightBarButtonItem = logoutButton
     }
 
     // MARK: - Actions
@@ -93,12 +89,6 @@ class EntrantController: BaseViewController {
     }
 
     @objc func closeTapped(_ sender: AnyObject) {
-        loggingOut = false
-        promptForPassword()
-    }
-
-    @objc func logoutTapped(_ sender: AnyObject) {
-        loggingOut = true
         promptForPassword()
     }
 
@@ -112,8 +102,7 @@ class EntrantController: BaseViewController {
     }
 
     private func promptForPassword() {
-        let title = (loggingOut == true) ? "Password required to logout" : "Password required to close"
-        let alert = TextAlertView.createAlertFor(parentController: navigationController!, title: title, placeholder: "Password", okButton: "OK", cancelButton: "Cancel")
+        let alert = TextAlertView.createAlertFor(parentController: navigationController!, title: "Password required to close", placeholder: "Password", okButton: "OK", cancelButton: "Cancel")
         alert.entryField.keyboardType = .default
         alert.entryField.isSecureTextEntry = true
         alert.delegate = self
@@ -174,6 +163,7 @@ extension EntrantController: CardAlertViewDelegate {
         lastNameField.text = ""
         emailField.text = ""
         phoneField.text = ""
+        firstNameField.becomeFirstResponder()
     }
     
     func cancelTappedForCardAlertView(alertView: CardAlertView) {
@@ -188,17 +178,11 @@ extension EntrantController: TextAlertViewDelegate {
 
     func okTappedForTextAlertView(alertView: TextAlertView, text: String) {
         if Organization.encodePassword(text) == Organization.shared.password {
-            if loggingOut == true {
-                Organization.shared.logout()
-                navigationController?.popToRootViewController(animated: true)
-            } else {
-                navigationController?.popViewController(animated: true)
-            }
+            navigationController?.popViewController(animated: true)
         } else {
             let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Incorrect Password", message: "The password entered is incorrect.", okButton: "OK", cancelButton: nil)
             alert.showAlert()
         }
-        loggingOut = false
     }
 
 }
