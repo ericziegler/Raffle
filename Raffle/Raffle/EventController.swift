@@ -55,8 +55,8 @@ class EventController: BaseViewController {
         loadEntrants()
     }
 
-    private func loadEntrants() {
-        progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Fetching Entrants")
+    private func loadEntrants(message: String = "Fetching Entrants", completion: RequestCompletionBlock? = nil) {
+        progressView = ProgressView.createProgressFor(parentController: navigationController!, title: message)
         progressView!.showProgress()
         event.loadEntrantsWith { [unowned self] (error) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -65,9 +65,11 @@ class EventController: BaseViewController {
                 if let _ = error {
                     let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Fetching Error", message: "We couldn't load the list of entrants", okButton: "OK", cancelButton: nil)
                     alert.showAlert()
+                    completion?(error)
                 } else {
                     self.entrantsTable.reloadData()
                     self.refreshControl.endRefreshing()
+                    completion?(nil)
                 }
             }
         }
@@ -75,6 +77,18 @@ class EventController: BaseViewController {
 
     // MARK: - Actions
 
+    @IBAction func pickWinnerTapped(_ sender: AnyObject) {
+        loadEntrants(message: "Picking Winner") { [unowned self] (error) in
+            if error == nil {
+                let randomIndex = Int.random(in: 0 ..< self.event.entrants.count)
+                let entrant = self.event.entrants[randomIndex]
+                let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Winner!", message: "\(entrant.formattedName)\n\(entrant.email)\n\(entrant.formattedPhone)", okButton: "OK", cancelButton: nil)
+                alert.showAlert()
+            }
+        }
+        
+    }
+    
     @IBAction func exportTapped(_ sender: AnyObject) {
         // TODO: Email csv or xlsx
         print("EXPORT TAPPED")
