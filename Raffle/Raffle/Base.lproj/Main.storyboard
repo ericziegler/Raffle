@@ -345,13 +345,52 @@
                     <view key="view" contentMode="scaleToFill" id="NIs-Ii-arb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1k-lC-59M" customClass="ActionLabel" customModule="Rafflebot" customModuleProvider="target">
+                                <rect key="frame" x="12" y="44" width="390" height="29"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" red="0.28627450980392155" green="0.65490196078431373" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7s3-nX-U54">
+                                <rect key="frame" x="0.0" y="107" width="414" height="789"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="1Ic-GW-gkD">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ic-GW-gkD" id="p9B-S5-vku">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-aW-ztV" customClass="BoldLabel" customModule="Rafflebot" customModuleProvider="target">
+                                <rect key="frame" x="12" y="84" width="89" height="20"/>
+                                <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="15"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7s3-nX-U54" firstAttribute="leading" secondItem="80v-Ms-x1j" secondAttribute="leading" id="0rW-ik-s13"/>
+                            <constraint firstItem="R1k-lC-59M" firstAttribute="leading" secondItem="80v-Ms-x1j" secondAttribute="leading" constant="12" id="633-LZ-NRo"/>
+                            <constraint firstItem="bSJ-aW-ztV" firstAttribute="top" secondItem="R1k-lC-59M" secondAttribute="bottom" constant="11" id="Bew-Lb-GKu"/>
+                            <constraint firstItem="bSJ-aW-ztV" firstAttribute="leading" secondItem="R1k-lC-59M" secondAttribute="leading" id="Fxf-ly-C18"/>
+                            <constraint firstItem="80v-Ms-x1j" firstAttribute="trailing" secondItem="R1k-lC-59M" secondAttribute="trailing" constant="12" id="h0h-6j-lfe"/>
+                            <constraint firstItem="R1k-lC-59M" firstAttribute="top" secondItem="80v-Ms-x1j" secondAttribute="top" id="sxa-Mf-Ikx"/>
+                            <constraint firstAttribute="bottom" secondItem="7s3-nX-U54" secondAttribute="bottom" id="uSs-jg-Yj6"/>
+                            <constraint firstItem="7s3-nX-U54" firstAttribute="trailing" secondItem="80v-Ms-x1j" secondAttribute="trailing" id="yV5-bg-stg"/>
+                            <constraint firstItem="7s3-nX-U54" firstAttribute="top" secondItem="bSJ-aW-ztV" secondAttribute="bottom" constant="3" id="zgQ-HB-tke"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="80v-Ms-x1j"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJ5-Q0-XWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="823"/>
+            <point key="canvasLocation" x="92.753623188405811" y="822.99107142857144"/>
         </scene>
         <!--Event Controller-->
         <scene sceneID="egx-Ob-vWg">

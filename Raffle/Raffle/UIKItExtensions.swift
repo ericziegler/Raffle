@@ -91,6 +91,12 @@ class LightLabel: ApplicationStyleLabel {
     }
 }
 
+class ActionLabel: ApplicationStyleLabel {
+    override func commonInit() {
+        self.font = UIFont.applicationActionFontOfSize(self.font.pointSize)
+    }
+}
+
 // MARK: - UIButton
 
 class ApplicationStyleButton : UIButton {
@@ -138,7 +144,7 @@ class LightButton: ApplicationStyleButton {
 class ActionButton: ApplicationStyleButton {
     override func commonInit() {
         if let font = self.titleLabel?.font {
-            self.titleLabel?.font = UIFont.applicationButtonFontOfSize(font.pointSize)
+            self.titleLabel?.font = UIFont.applicationActionFontOfSize(font.pointSize)
         }
         self.setTitleColor(UIColor.appLight, for: .normal)
         self.backgroundColor = UIColor.main
@@ -154,7 +160,7 @@ extension UIFont {
         return UIFont(name: "GillSans-SemiBold", size: size)!
     }
     
-    class func applicationButtonFontOfSize(_ size: CGFloat) -> UIFont {
+    class func applicationActionFontOfSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: "GillSans", size: size)!
     }
     
