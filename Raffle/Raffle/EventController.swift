@@ -41,7 +41,11 @@ class EventController: BaseViewController {
         nameLabel.text = event.name
         navigationItem.setHidesBackButton(false, animated: false)
         let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped(_:)))
-        navigationItem.rightBarButtonItem = logoutButton
+        navigationItem.rightBarButtonItem = logoutButton        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadEntrants()
     }
 
@@ -128,7 +132,7 @@ extension EventController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let viewController = EntrantController.createController()
+            let viewController = EntrantController.createControllerFor(event: event)
             navigationController?.pushViewController(viewController, animated: true)
         }
     }

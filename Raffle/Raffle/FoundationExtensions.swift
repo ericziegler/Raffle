@@ -37,6 +37,11 @@ extension String {
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return String(self[start..<end])
     }
+    
+    func isNumber() -> Bool {
+        let numberOfCharacters = CharacterSet.decimalDigits.inverted
+        return !self.isEmpty && self.rangeOfCharacter(from: numberOfCharacters) == nil
+    }
 
     static func formatPhoneNumber(source: String) -> String? {
 

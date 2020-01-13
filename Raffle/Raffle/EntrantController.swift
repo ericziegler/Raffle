@@ -23,13 +23,16 @@ class EntrantController: BaseViewController {
     @IBOutlet var textFieldBackground: UIView!
     @IBOutlet var backgroundTopConstraint: NSLayoutConstraint!
 
+    var progressView: ProgressView!
+    var event: Event!
     var loggingOut = false
 
     // MARK: - Init
 
-    static func createController() ->  EntrantController {
+    static func createControllerFor(event: Event) ->  EntrantController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController: EntrantController = storyboard.instantiateViewController(withIdentifier: EntrantControllerId) as! EntrantController
+        viewController.event = event
         return viewController
     }
 
@@ -56,7 +59,32 @@ class EntrantController: BaseViewController {
     // MARK: - Actions
 
     @IBAction func enterTapped(_ sender:AnyObject) {
-        print("ENTER TAPPED")
+        if firstNameField.isNilOrEmpty() == false && lastNameField.isNilOrEmpty() == false && emailField.isNilOrEmpty() == false && phoneField.isNilOrEmpty() == false {
+            if phoneField.text!.count == 10 && phoneField.text!.isNumber() == true {
+                progressView = ProgressView.createProgressFor(parentController: navigationController!, title: "Entering Contest")
+                progressView.showProgress()
+                resetTopConstraint()
+                event.addEntrantWith(firstName: firstNameField.text!, lastName: lastNameField.text!, email: emailField.text!, phone: phoneField.text!) { [unowned self] (error) in
+                    DispatchQueue.main.async {
+                        self.progressView.hideProgress()
+                        if let _ = error {
+                            let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Entree Error", message: "An error occurred while entering contest.", okButton: "OK", cancelButton: nil)
+                            alert.showAlert()
+                        } else {
+                            let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Congratulations", message: "You've been entered into the contest!", okButton: "OK", cancelButton: nil)
+                            alert.delegate = self
+                            alert.showAlert()
+                        }
+                    }
+                }
+            } else {
+                let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Invalid Phone Number", message: "Phone numbers must be 10 digits.", okButton: "OK", cancelButton: nil)
+                alert.showAlert()
+            }
+        } else {
+            let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Empty Fields", message: "All fields must be filled out before entering.", okButton: "OK", cancelButton: nil)
+            alert.showAlert()
+        }
     }
 
     @objc func screenTapped(_ sender: AnyObject) {
@@ -133,6 +161,23 @@ extension EntrantController: UITextFieldDelegate {
             resetTopConstraint()
         }
         return true
+    }
+
+}
+
+// MARK: - CardAlertViewDelegate
+
+extension EntrantController: CardAlertViewDelegate {
+    
+    func okTappedForCardAlertView(alertView: CardAlertView) {
+        firstNameField.text = ""
+        lastNameField.text = ""
+        emailField.text = ""
+        phoneField.text = ""
+    }
+    
+    func cancelTappedForCardAlertView(alertView: CardAlertView) {
+        // do nothing
     }
 
 }
