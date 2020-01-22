@@ -121,6 +121,37 @@ class Organization {
         self.events = [Event]()
     }
 
+    // MARK: - Password
+
+    func resetPassword(email: String, completion: @escaping RequestCompletionBlock) {
+        let code = String(Int.random(in: 10000 ... 99999))
+        if let request = buildRequestFor(fileName: "send_reset_pw.php", params: ["email" : email, "code" : code]) {
+                let task = URLSession.shared.dataTask(with: request) { [unowned self] (data, response, error) in
+                let response = buildJSONResponse(data: data, error: error)
+                if let error = response.1 {
+                    completion(error)
+                }
+                else if let json = response.0 {
+                    if self.identifier == JSONNullValue {
+                        completion(RaffleError.UnexpectedResult)
+                    } else {
+                        let status = json.dictionary!["status"]!.stringValue
+                        if status == SuccessStatus {
+                            completion(nil)
+                        } else {
+                            completion(RaffleError.JSONParsing)
+                        }
+                    }
+                } else {
+                    completion(RaffleError.Unknown)
+                }
+            }
+            task.resume()
+        } else {
+            completion(RaffleError.InvalidRequest)
+        }
+    }
+
     // MARK: - Events
 
     func addEventWith(name: String, completion: @escaping RequestCompletionBlock) {

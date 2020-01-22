@@ -67,7 +67,8 @@ class SignInController: BaseViewController {
     }
     
     @IBAction func resetPasswordTapped(_ sender: AnyObject) {
-        // TODO: Implement reset password option
+        let viewController = ResetPasswordController.createController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc func screenTapped(_ sender: AnyObject) {
