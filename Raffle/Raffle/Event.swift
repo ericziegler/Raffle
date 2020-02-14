@@ -97,4 +97,13 @@ class Event {
         return result
     }
 
+    var entrantsPlainText: String {
+        var result = ""
+        for curEntrant in entrants {
+            result += curEntrant.formattedPlainText
+            result += "\n\n"
+        }
+        return result
+    }
+
 }

@@ -85,7 +85,7 @@ extension ResetPasswordController: UITextFieldDelegate {
 extension ResetPasswordController: CardAlertViewDelegate {
 
     func okTappedForCardAlertView(alertView: CardAlertView) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 
     func cancelTappedForCardAlertView(alertView: CardAlertView) {

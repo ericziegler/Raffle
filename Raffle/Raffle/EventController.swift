@@ -90,33 +90,48 @@ class EventController: BaseViewController {
     
     @IBAction func exportTapped(_ sender: AnyObject) {
         if MFMailComposeViewController.canSendMail() == true {
-            loadEntrants(message: "Preparing Export") { [unowned self] (error) in
-                if error == nil {
-                    // get csv string
-                    let entrantCSV = self.event.entrantsCSV
-                    // write string to a file
-                    if entrantCSV.writeToFile(fileName: "entrants.csv") == true {
-                        // mail attachment
-                        let mailComposer = MFMailComposeViewController()
-                        mailComposer.mailComposeDelegate = self
-                        mailComposer.setToRecipients([Organization.shared.email])
-                        mailComposer.setSubject("\(self.event.name) Entrants")
+            let alert = CardAlertView.createAlertFor(parentController: navigationController!, title: "Data Format", message: "How would you like the data exported?", okButton: "Spreadsheet", cancelButton: "Text")
+            alert.delegate = self
+            alert.showAlert()
+        } else {
+            let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "No Email Found", message: "This device must be connected to an email account to export.", okButton: "OK", cancelButton: nil)
+            alert.showAlert()
+        }
+    }
+
+    private func exportData(_ asPlainText: Bool = false) {
+        loadEntrants(message: "Preparing Export") { [unowned self] (error) in
+            if error == nil {
+                var entrantData = self.event.entrantsCSV
+                var entrantFileName = "entrants.csv"
+                var entrantFileType = ".csv"
+                if asPlainText == true {
+                    // get plain text
+                    entrantData = self.event.entrantsPlainText
+                    entrantFileName = "entrants.txt"
+                    entrantFileType = ".txt"
+                }
+                // write string to a file
+                if entrantData.writeToFile(fileName: entrantFileName) == true {
+                    // mail attachment
+                    let mailComposer = MFMailComposeViewController()
+                    mailComposer.mailComposeDelegate = self
+                    mailComposer.setToRecipients([Organization.shared.email])
+                    mailComposer.setSubject("\(self.event.name) Entrants")
+                    if asPlainText == true {
+                        mailComposer.setMessageBody(PlainTextExportInstructions, isHTML: false)
+                    } else {
                         mailComposer.setMessageBody(ImportCSVInstructions, isHTML: false)
-                        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                            let fileURL = dir.appendingPathComponent("entrants.csv")
-                            do {
-                                let fileData = try Data(contentsOf: fileURL, options: [.alwaysMapped, .uncached])
-                                mailComposer.addAttachmentData(fileData, mimeType: ".csv", fileName: "entrants.csv")
-                                DispatchQueue.main.async {
-                                    self.present(mailComposer, animated: true, completion: nil)
-                                }
-                            } catch {
-                                DispatchQueue.main.async {
-                                    let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Export Error", message: "An error occurred while exporting data.", okButton: "OK", cancelButton: nil)
-                                    alert.showAlert()
-                                }
+                    }
+                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        let fileURL = dir.appendingPathComponent(entrantFileName)
+                        do {
+                            let fileData = try Data(contentsOf: fileURL, options: [.alwaysMapped, .uncached])
+                            mailComposer.addAttachmentData(fileData, mimeType: entrantFileType, fileName: entrantFileName)
+                            DispatchQueue.main.async {
+                                self.present(mailComposer, animated: true, completion: nil)
                             }
-                        } else {
+                        } catch {
                             DispatchQueue.main.async {
                                 let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Export Error", message: "An error occurred while exporting data.", okButton: "OK", cancelButton: nil)
                                 alert.showAlert()
@@ -128,11 +143,13 @@ class EventController: BaseViewController {
                             alert.showAlert()
                         }
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "Export Error", message: "An error occurred while exporting data.", okButton: "OK", cancelButton: nil)
+                        alert.showAlert()
+                    }
                 }
             }
-        } else {
-            let alert = CardAlertView.createAlertFor(parentController: self.navigationController!, title: "No Email Found", message: "This device must be connected to an email account to export.", okButton: "OK", cancelButton: nil)
-            alert.showAlert()
         }
     }
 
@@ -187,12 +204,13 @@ extension EventController: UITableViewDataSource, UITableViewDelegate {
 
 extension EventController: CardAlertViewDelegate {
     func okTappedForCardAlertView(alertView: CardAlertView) {
-        Organization.shared.logout()
-        navigationController?.popToRootViewController(animated: true)
+        // user chose to export csv
+        exportData()
     }
 
     func cancelTappedForCardAlertView(alertView: CardAlertView) {
-        // do nothing
+        // user chose to export plain text
+        exportData(true)
     }
 
 }

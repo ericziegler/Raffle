@@ -49,4 +49,8 @@ class Entrant {
         return "\(cleanFirstName),\(cleanLastName),\(cleanEmail),\(cleanPhone)"
     }
 
+    var formattedPlainText: String {
+        return "\(firstName) \(lastName)\n\(email)\n\(formattedPhone)"
+    }
+
 }
